@@ -6,8 +6,8 @@ class LandingPage extends Component {
         super();
         this.state ={
             formShow: '',
-            email: '', 
-            password: '', 
+            email: '',
+            password: '',
             confirm: ''
         }
     }
@@ -39,6 +39,7 @@ class LandingPage extends Component {
             .then((data) => {
                 console.log(data);
             });
+
     }
     render(){
         let formLogin = '';
