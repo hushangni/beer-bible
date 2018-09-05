@@ -9,6 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <Finder />
       <LandingPage />
       </div>
     );
