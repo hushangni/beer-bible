@@ -31,6 +31,8 @@ export default class Finder extends Component {
         axios.get(url, {
             params: beerIng
         }).then(res => {
+            console.log(res.data);
+
             if(res.data.length===0){
                 const beerItem = Object.keys(beerIng)[0];
                 axios.get(url,{
@@ -44,7 +46,7 @@ export default class Finder extends Component {
         })
 
 
-        
+
     }
 
     render(){
