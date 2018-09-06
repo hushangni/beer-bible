@@ -1,0 +1,21 @@
+@import 'partials/_setup.scss';
+
+@import 'partials/_finder.scss';
+
+
+img {
+    width: 100%;
+    display: block;
+}
+
+button {
+    border: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.show {
+    display: block;
+}

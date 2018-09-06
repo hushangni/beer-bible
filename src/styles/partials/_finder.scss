@@ -1,0 +1,33 @@
+
+
+.search-results {
+    position: relative;
+    text-align: center;
+    height: 100%;
+
+    .beer-item {
+        width: 25%;
+        float: left;
+        padding: 6%;
+    }
+
+
+}
+
+.beer-item-modal {
+    display: none;
+    background-color: yellow;
+    position: fixed;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .ingredient-list {
+
+        .list {
+            width: 33%;
+            float: left;
+        }
+    }
+}
