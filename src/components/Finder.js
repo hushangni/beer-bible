@@ -5,11 +5,11 @@ export default class Finder extends Component {
     constructor() {
         super();
         this.state={
-            beers: {}
+            beers: []
         }
     }
 
-    handleSubmit=(e)=>{
+    handleSubmit = (e) => {
         e.preventDefault();
         const beerIng = {}
         const malt=document.getElementsByClassName("malt")[0].value;
@@ -33,15 +33,22 @@ export default class Finder extends Component {
         }).then(res => {
             console.log(res.data);
 
-            if(res.data.length===0){
+            if(res.data.length === 0){
                 const beerItem = Object.keys(beerIng)[0];
                 axios.get(url,{
                     params: {
                         beerItem: beerIng[Object.keys(beerIng)[0]]
                     }
                 }).then(res => {
-                    console.log(res)
+                    console.log(res.data);
+                    this.setState({
+                        beers: res.data
+                    });
                 })
+            } else {
+                this.setState({
+                    beers: res.data
+                });
             }
         })
 
@@ -49,23 +56,86 @@ export default class Finder extends Component {
 
     }
 
+    handleInfo = (beerId) => {
+        document.getElementById(beerId).classList.add('show');
+    }
+
+    getSingleHops = (hopsArray) => {
+        let hopsSet = new Set();
+        for (let i = 0; i < hopsArray.length; i++) {
+            hopsSet.add(hopsArray[i].name);
+        }
+        const hopsArrayNew = Array.from(hopsSet);
+
+        const html = hopsArrayNew.map((hop) => {
+            return(<li>{hop}</li>);
+        });
+
+        return html;
+    }
+
+    handleClose = (beerId) => {
+        document.getElementById(beerId).classList.remove('show');
+    }
+
     render(){
         return(
-            <form>
-                <div>
-                    <label htmlFor="">Malt</label>
-                    <input type="text" className="malt"/>
+            <div>
+                <form>
+                    <div>
+                        <label htmlFor="">Malt</label>
+                        <input type="text" className="malt"/>
+                    </div>
+                    <div>
+                        <label htmlFor="">Yeast</label>
+                        <input type="text" className="yeast"/>
+                    </div>
+                    <div>
+                        <label htmlFor="">Hops</label>
+                        <input type="text" className="hops" />
+                    </div>
+                    <button onClick={this.handleSubmit}>Submit</button>
+                </form>
+
+                <div className="search-results">
+                    {this.state.beers.map((beer) => {
+                        return(
+                            <React.Fragment >
+                                <div className="beer-item-modal" id={beer.id}>
+                                    <button className="button close-modal-button" onClick={() => this.handleClose(beer.id)}><i className="fas fa-times"></i></button>
+                                    <h2>{beer.name}</h2>
+                                    <p>{beer.description}</p>
+                                    <div className="ingredient-list">
+                                        <ul className="hops-list list">
+                                            <h3>Hops</h3>
+                                            {this.getSingleHops(beer.ingredients.hops)}
+                                        </ul>
+                                        <ul className="malts-list list">
+                                            <h3>Malts</h3>
+                                            {beer.ingredients.malt.map((malt) => {
+                                                return (
+                                                    <li>{malt.name}</li>
+                                                )
+                                            })}
+                                        </ul>
+                                        <ul className="yeast-list list">
+                                            <h3>Yeast</h3>
+                                            <li>{beer.ingredients.yeast}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className="beer-item">
+                                    <img src={beer.image_url} alt="beer image"/>
+                                    <h2>{beer.name}</h2>
+                                    <button className="button info-button" onClick={() => this.handleInfo(beer.id, beer)}><i class="fas fa-info-circle"></i></button>
+                                    <button className="button add-button"><i class="fas fa-plus-circle"></i></button>
+                                </div>
+                            </React.Fragment>
+                        )
+                    })
+                    }
                 </div>
-                <div>
-                    <label htmlFor="">Yeast</label>
-                    <input type="text" className="yeast"/>
-                </div>
-                <div>
-                    <label htmlFor="">Hops</label>
-                    <input type="text" className="hops" />
-                </div>
-                <button onClick={this.handleSubmit}>Submit</button>
-            </form>
+            </div>
         )
     }
 
