@@ -1,4 +1,4 @@
-import React, {Component } from 'react';
+import React, { Component } from 'react';
 import firebase from "./firebase";
 
 class LandingPage extends Component {
@@ -26,21 +26,24 @@ class LandingPage extends Component {
     }
     signUp = (e) => {
         e.preventDefault();
+        
         if(this.state.password === this.state.confirm) {
             firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
                 .then((data) => {
-                    console.log(data);
-                });
+                    const userId = data.user.uid
+                    this.props.setUser(userId);
+            });
         }
     }
     logIn = (e) => {
         e.preventDefault();
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
             .then((data) => {
-                console.log(data);
-            });
-
+                const userId = data.user.uid
+                this.props.setUser(userId);
+        });
     }
+    // ------------------------------
     render(){
         let formLogin = '';
         if (this.state.formShow === 'signUp') {
@@ -84,5 +87,4 @@ class LandingPage extends Component {
         )
     }
 }
-
 export default LandingPage;
