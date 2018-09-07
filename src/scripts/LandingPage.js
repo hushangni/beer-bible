@@ -32,7 +32,11 @@ class LandingPage extends Component {
             firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
                 .then((data) => {
                     const userId = data.user.uid
-                    this.props.setUser(userId);
+                    this.props.setUser(userId)
+                    const usersDirectory = firebase.database().ref(`users/${userId}`);
+                    usersDirectory.set({
+                        beerRecipes: [],
+                    })
             });
         }
     }

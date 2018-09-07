@@ -1,21 +1,16 @@
 import React, {Component} from "react";
 import axios from "axios";
 import firebase from 'firebase';
-
+import {Link} from 'react-router-dom';
+import RecipeBook from '../components/RecipeBook';
 export default class Finder extends Component {
     constructor() {
         super();
         this.state={
             beers: []
         }
+        
     }
-
-    // signOut = () => {
-    // const auth = firebase.auth();
-    //     auth.signOut().then(()=> {
-
-    //     });
-    // }
     handleSubmit = (e) => {
         e.preventDefault();
         const beerIng = {}
@@ -58,9 +53,6 @@ export default class Finder extends Component {
                 });
             }
         })
-
-
-
     }
 
     handleInfo = (beerId) => {
@@ -84,12 +76,22 @@ export default class Finder extends Component {
     handleClose = (beerId) => {
         document.getElementById(beerId).classList.remove('show');
     }
+    handleSave = (beer) => {
+        firebase.database().ref().child(`users/${firebase.auth().currentUser.uid}/beerRecipes`).push({
+            beer
+        })
+    }
 
     render(){
         return(
             <div>
                 <div className="auth">
                     <button onClick={()=>this.props.logout()}>Log Out</button>
+                </div>
+                <div className="book">
+                    <Link to="/RecipeBook">
+                        <button>Press This Bible</button>
+                    </Link>
                 </div>
                 <form>
                     <div>
@@ -138,7 +140,7 @@ export default class Finder extends Component {
                                     <img src={beer.image_url} alt="beer image"/>
                                     <h2>{beer.name}</h2>
                                     <button className="button info-button" onClick={() => this.handleInfo(beer.id, beer)}><i class="fas fa-info-circle"></i></button>
-                                    <button className="button add-button"><i class="fas fa-plus-circle"></i></button>
+                                    <button onClick={() => this.handleSave(beer)} className="button add-button"><i class="fas fa-plus-circle"></i></button>
                                 </div>
                             </React.Fragment>
                         )
