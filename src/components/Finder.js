@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios";
+import firebase from 'firebase';
 
 export default class Finder extends Component {
     constructor() {
@@ -9,6 +10,12 @@ export default class Finder extends Component {
         }
     }
 
+    signOut = () => {
+    const auth = firebase.auth();
+        auth.signOut().then(()=> {
+            
+        });         
+    }
     handleSubmit = (e) => {
         e.preventDefault();
         const beerIng = {}
@@ -81,6 +88,9 @@ export default class Finder extends Component {
     render(){
         return(
             <div>
+                <div className="auth">
+                    <button onClick={this.signOut}>Log Out</button>
+                </div>
                 <form>
                     <div>
                         <label htmlFor="">Malt</label>
