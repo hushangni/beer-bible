@@ -5,6 +5,7 @@ import firebase from "./firebase";
 // Components
 import LandingPage from "./LandingPage";
 import Finder from "../components/Finder";
+import RecipeBook from "../components/RecipeBook";
 
 class App extends Component {
   constructor() {
@@ -69,6 +70,8 @@ class App extends Component {
               )
             }
           }} />
+
+          <Route path="/RecipeBook" component={RecipeBook} />
         </div>
       </Router>
     );
