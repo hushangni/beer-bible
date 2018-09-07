@@ -16,6 +16,8 @@ export default class Finder extends Component {
             
         });         
     }
+
+
     handleSubmit = (e) => {
         e.preventDefault();
         const beerIng = {}
@@ -89,7 +91,7 @@ export default class Finder extends Component {
         return(
             <div>
                 <div className="auth">
-                    <button onClick={this.signOut}>Log Out</button>
+                    <button onClick={this.props.logout}>Log Out</button>
                 </div>
                 <form>
                     <div>

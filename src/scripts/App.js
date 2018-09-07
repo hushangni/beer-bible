@@ -25,6 +25,13 @@ class App extends Component {
 
     })
   }
+
+  handleLogout = (e) => {
+    this.setState({
+      loggedIn:false
+    })
+  }
+
   setUser = (userId) => {
 
   }
@@ -45,7 +52,7 @@ class App extends Component {
           }} />
 
 
-          <Route exact path="/finder" render={(props) => <Finder {...props} userState={this.state.loggedIn} />} />
+          <Route exact path="/finder" render={(props) => <Finder {...props} userState={this.state.loggedIn} logout={this.handleLogout} />} />
         </div>
       </Router>
     );
