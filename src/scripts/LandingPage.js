@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from "./firebase";
+import { BrowserRouter as Router,Redirect, Route} from 'react-router-dom'
 
 class LandingPage extends Component {
     constructor(){
@@ -8,7 +9,8 @@ class LandingPage extends Component {
             formShow: '',
             email: '',
             password: '',
-            confirm: ''
+            confirm: '',
+            user: null
         }
     }
     formShow = (e) => {
@@ -26,7 +28,6 @@ class LandingPage extends Component {
     }
     signUp = (e) => {
         e.preventDefault();
-        
         if(this.state.password === this.state.confirm) {
             firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
                 .then((data) => {
