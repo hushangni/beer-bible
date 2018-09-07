@@ -20,16 +20,23 @@ class App extends Component {
         // to display users search results / saved recipes / notes
         this.setState({
           loggedIn: true
+        }, () => {
+          this.dbRef = firebase.database().ref(user.uid);
         })
       }
 
     })
   }
 
-  handleLogout = (e) => {
-    this.setState({
-      loggedIn:false
-    })
+  logout = () => {
+    firebase.auth().signOut().then(() => {
+      this.setState({
+        loggedIn: false
+      });
+
+      this.dbRef.off();
+    });
+
   }
 
   setUser = (userId) => {
@@ -51,8 +58,17 @@ class App extends Component {
             }
           }} />
 
-
-          <Route exact path="/finder" render={(props) => <Finder {...props} userState={this.state.loggedIn} logout={this.handleLogout} />} />
+          <Route exact path="/finder" render={(props) => {
+            if (!this.state.loggedIn) {
+              return (
+                <Redirect to="/" />
+              )
+            } else {
+              return (
+                <Finder {...props} userState={this.state.loggedIn} logout={this.logout} />
+              )
+            }
+          }} />
         </div>
       </Router>
     );

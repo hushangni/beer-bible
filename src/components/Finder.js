@@ -10,14 +10,12 @@ export default class Finder extends Component {
         }
     }
 
-    signOut = () => {
-    const auth = firebase.auth();
-        auth.signOut().then(()=> {
-            
-        });         
-    }
+    // signOut = () => {
+    // const auth = firebase.auth();
+    //     auth.signOut().then(()=> {
 
-
+    //     });
+    // }
     handleSubmit = (e) => {
         e.preventDefault();
         const beerIng = {}
@@ -91,7 +89,7 @@ export default class Finder extends Component {
         return(
             <div>
                 <div className="auth">
-                    <button onClick={this.props.logout}>Log Out</button>
+                    <button onClick={()=>this.props.logout()}>Log Out</button>
                 </div>
                 <form>
                     <div>
