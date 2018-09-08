@@ -89,7 +89,7 @@ export default class Finder extends Component {
                     <button onClick={()=>this.props.logout()}>Log Out</button>
                 </div>
                 <div className="book">
-                    <Link to="/RecipeBook">
+                    <Link to="/RecipeBook"> 
                         <button>Press This Bible</button>
                     </Link>
                 </div>
