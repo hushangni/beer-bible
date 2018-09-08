@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import firebase from "firebase";
+import FullRecipe from "./FullRecipe";
+
+
+// SOLUTION FOR ISSUE WITH HOPS
+// turn each hops opbject into a string and put the string of every attribute of the hops object into an array
+// then pass that array into the div
 
 class RecipeBook extends Component{
     constructor(){
         super();
         this.state = {
-            beersList: []
+            beersList: [],
+            displayFullRecipe: false,
+            beerToDisplay: null
         }
     }
     componentDidMount() {
@@ -19,7 +27,6 @@ class RecipeBook extends Component{
             })
         })
     }
-
     setBeers = (snapshot) => {
         const beersArray = Object.entries(snapshot)
             .map((beer) => {
@@ -29,17 +36,38 @@ class RecipeBook extends Component{
                     image: beery.image_url,
                     ingredients: beery.ingredients,
                     volume: beery.volume.value,
-                    methodWashTemp: beery.method.mash_temp[0].temp.value,
-                    methodWashDuration: beery.method.mash_temp[0].duration,
+                    methodMashTemp: beery.method.mash_temp[0].temp.value,
+                    methodMashDuration: beery.method.mash_temp[0].duration,
                     foodPairings: beery.food_pairing,
                     brewersTips: beery.brewers_tips
                 })
             })
-
         this.setState({
             beersList: beersArray
         })
-        
+    }
+    displayFullRecipe = (beer) => {
+        console.log(firebase.auth().currentUser, "current user");
+        firebase.auth().onAuthStateChanged((user) => {
+            firebase.database().ref().child(`users/${user.uid}/beerRecipes`).once('value', (snapshot) => {
+                if (snapshot.val()) {
+                    this.setBeers(snapshot.val());
+                    this.setState({
+                        displayFullRecipe: true,
+                        beerName: beer.name,
+                        beerImage: beer.image,
+                        // beerHops: beer.ingredients.hops,
+                        // beerMalts: beer.ingredients.malt,
+                        beerYeast: beer.ingredients.yeast,
+                        beerVolume: beer.volume,
+                        beerMethodMashTemp: beer.methodMashTemp,
+                        beerMethodMashDuration: beer.methoMashDuration,
+                        foodPairings: beer.foodPairings,
+                        brewersTips: beer.brewersTips
+                    })
+                }
+            })
+        })
     }
 
     // beer.name
@@ -50,28 +78,35 @@ class RecipeBook extends Component{
     // beer.method.mash_temp[0].duration
     // beer.brewers_tips
     // beer.image_url 
-
+// --------------------------------------
     render(){
         return (
-            <div>
+            <main>
                 <div className="book">
                     <Link to="/Finder">
                         <button>Back to finder</button>
                     </Link>
                 </div>
-                <div className="beers-list">
+
+                {
+                    this.state.beerName ? 
+                    <FullRecipe beerName={this.state.beerName} 
+                    // beerHops={this.state.beerHops} 
+                    // beerMalts={this.state.beerMalts} 
+                    beerYeast={this.state.beerYeast} /> : null
+                }
+
+                <aside className="beers-list">
                 {this.state.beersList.map((beer) => {
                     return (
-                        <div className="beer-box">
+                        <div onClick={() => {this.displayFullRecipe(beer)}} className="beer-box">
                             <h4>{beer.name}</h4>
-                            <p>{beer.brewersTips}</p>
-
+                            {/* <p>{beer.brewersTips}</p> */}
                         </div>
                     )
                 })}
-                
-                </div>
-            </div>
+                </aside>
+            </main>
         )
     }
 }
