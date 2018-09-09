@@ -1,0 +1,41 @@
+
+.recipe-book-container {
+    height: 100%;
+    width: 100%;
+}
+
+.beers-list {
+    float: right;
+    width: 45%;
+    height: 25vh;
+    overflow: auto;
+    background-color: #fcdccf;
+
+    .beer-box {
+        background-color: #e7d3d3;
+        cursor: pointer;
+    }
+}
+
+.full-recipe {
+    float: left;
+    margin-top: 25vh;
+    width: 55%;
+    padding: 25px;
+    background-color: #ebeae5;
+}
+
+.notes-box {
+    background-color: #d4ebf0;
+    float: right;
+    width: 45%;
+    height: 60vh;
+    padding: 25px;
+
+    #notes {
+        width: 100%;
+        height: 80%;
+        border: none;
+    }
+}
+
