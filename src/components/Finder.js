@@ -9,7 +9,7 @@ export default class Finder extends Component {
         this.state={
             beers: []
         }
-        
+
     }
     handleSubmit = (e) => {
         e.preventDefault();
@@ -77,7 +77,7 @@ export default class Finder extends Component {
         document.getElementById(beerId).classList.remove('show');
     }
     handleSave = (beer) => {
-        firebase.database().ref().child(`users/${firebase.auth().currentUser.uid}/beerRecipes`).push({
+        firebase.database().ref().child(`users/${firebase.auth().currentUser.uid}/beerRecipes/${beer.name}`).set({
             beer
         })
     }
@@ -89,7 +89,7 @@ export default class Finder extends Component {
                     <button onClick={()=>this.props.logout()}>Log Out</button>
                 </div>
                 <div className="book">
-                    <Link to="/RecipeBook"> 
+                    <Link to="/RecipeBook">
                         <button>Press This Bible</button>
                     </Link>
                 </div>

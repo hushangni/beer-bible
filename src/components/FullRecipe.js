@@ -9,24 +9,19 @@ class FullRecipe extends Component {
 
         }
     }
-    // beer.name
-    // beer.volume.value
-    // beer.ingredients // object with key value arrays
-    // beer.food_pairings // array of strings
-    // beer.method.mash_temp[0].temp.value
-    // beer.method.mash_temp[0].duration
-    // beer.brewers_tips
-    // beer.image_url 
-// --------------------------------------
+
     render() {
         return (
-            <div>
+            <section className="full-recipe">
                 <h4>{this.props.beerName}</h4>
                 <ul>
-                    <li>1. Put in the {this.props.beerName}</li>
-                    <li>2. Then add the hops: and then add  malts: and also the yeast: {this.props.beerYeast}</li>
+                    <li>1. This will make {this.props.beerVolume} liters of {this.props.beerName}</li>
+                    <li>2. Then add the hops: {this.props.beerHops} and then add  malts: {this.props.beerMalts}and also the yeast: {this.props.beerYeast}</li>
+                    <li>3. Beer mash temp: {this.props.beerMethodMashTemp} and beer mash duration:{this.props.beerMethodMashDuration}</li>
+                    <li>4. Food pairings for your beer: {this.props.foodPairings} </li>
+                    <li>5. Brewer's tips: {this.props.brewersTips}</li>
                 </ul>
-            </div>
+            </section>
         )
     }
 }
