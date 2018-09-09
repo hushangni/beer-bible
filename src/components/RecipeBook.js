@@ -103,7 +103,7 @@ class RecipeBook extends Component{
                             <h4>{beer.name}</h4>
                             {/* <p>{beer.brewersTips}</p> */}
                         </div>
-                    )
+                    )                    
                 })}
                 </aside>
             </main>
