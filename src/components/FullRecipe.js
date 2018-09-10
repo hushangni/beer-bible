@@ -9,6 +9,12 @@ class FullRecipe extends Component {
 
         }
     }
+    handleInfo = (dave) => {
+        document.getElementById(dave).style.display = "block";
+    }
+    handleClose = (dave) => {
+        document.getElementById(dave).style.display = "none";
+    }
 
     render() {
         return (
@@ -19,8 +25,19 @@ class FullRecipe extends Component {
                     <li>2. Then add the hops: {this.props.beerHops} and then add  malts: {this.props.beerMalts}and also the yeast: {this.props.beerYeast}</li>
                     <li>3. Beer mash temp: {this.props.beerMethodMashTemp} and beer mash duration:{this.props.beerMethodMashDuration}</li>
                     <li>4. Food pairings for your beer: {this.props.foodPairings} </li>
-                    <li>5. Brewer's tips: {this.props.brewersTips}</li>
+                    {/* <li>5. Brewer's tips: {this.props.brewersTips}</li> */}
                 </ul>
+                <div>
+                    <img onClick={() => this.handleInfo("dave")} src="/assets/dave.png"></img>
+
+                    <div className="brewer-tips-modal" id="dave">
+                        {/* id={brewersTips}> */}
+                        <button className="button close-modal-button" onClick={() => this.handleClose("dave")}><i className="fas fa-times"></i></button>
+                        <h3>Tips from Dave the Brewmaster</h3>
+                        <p>{this.props.brewersTips}</p>
+                    </div>
+
+                </div>
             </section>
         )
     }

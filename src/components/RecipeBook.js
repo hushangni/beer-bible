@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import firebase from "firebase";
 import FullRecipe from "./FullRecipe";
 
@@ -8,8 +8,8 @@ import FullRecipe from "./FullRecipe";
 // turn each hops opbject into a string and put the string of every attribute of the hops object into an array
 // then pass that array into the div
 
-class RecipeBook extends Component{
-    constructor(){
+class RecipeBook extends Component {
+    constructor() {
         super();
         this.state = {
             beersList: [],
@@ -113,7 +113,7 @@ class RecipeBook extends Component{
 
 
 
-    render(){
+    render() {
         return (
             <main className="clearfix recipe-book-container wrapper">
                 <div className="book">
@@ -132,21 +132,21 @@ class RecipeBook extends Component{
                         )
                     })}
                 </aside>
-
+    
                 {
                     this.state.beerName ?
-                    <FullRecipe
-                    beerName={this.state.beerName}
-                    beerHops={this.state.beerHops}
-                    beerMalts={this.state.beerMalts}
-                    beerYeast={this.state.beerYeast}
-                    beerVolume={this.state.beerVolume}
-                    beerMethodMashTemp={this.state.beerMethodMashTemp}
-                    beerMethodMashDuration={this.state.beerMethodMashDuration}
-                    foodPairings={this.state.foodPairings}
-                    brewersTips={this.state.brewersTips} /> : null
+                    
+                        <FullRecipe
+                            beerName={this.state.beerName}
+                            beerHops={this.state.beerHops}
+                            beerMalts={this.state.beerMalts}
+                            beerYeast={this.state.beerYeast}
+                            beerVolume={this.state.beerVolume}
+                            beerMethodMashTemp={this.state.beerMethodMashTemp}
+                            beerMethodMashDuration={this.state.beerMethodMashDuration}
+                            foodPairings={this.state.foodPairings}
+                            brewersTips={this.state.brewersTips} /> : null
                 }
-
                 <form action="" className="notes-box">
                     <h3 className="notes-header">Notes</h3>
                     <textarea type="text" name="notes" id="notes" placeholder="Notes from your brewing experience for this beer here..." onChange={this.handleChange} />
