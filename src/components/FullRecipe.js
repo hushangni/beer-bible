@@ -6,7 +6,6 @@ class FullRecipe extends Component {
     constructor() {
         super();
         this.state = {
-
         }
     }
     handleInfo = (dave) => {
@@ -15,7 +14,6 @@ class FullRecipe extends Component {
     handleClose = (dave) => {
         document.getElementById(dave).style.display = "none";
     }
-
     render() {
         return (
             <section className="full-recipe">
