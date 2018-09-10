@@ -176,6 +176,5 @@ export default class Finder extends Component {
             </div>
         )
     }
-
 }
 
