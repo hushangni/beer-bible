@@ -228,7 +228,6 @@ body {
 
 .full-recipe {
   float: left;
-  margin-top: 25vh;
   width: 55%;
   padding: 25px;
   background-color: #ebeae5; }
@@ -243,6 +242,10 @@ body {
     width: 100%;
     height: 80%;
     border: none; }
+
+.dave img {
+  width: 70%;
+  margin: 0 auto; }
 
 img {
   width: 100%;
