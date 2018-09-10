@@ -23,7 +23,6 @@ class RecipeBook extends Component{
                 if (snapshot.val()) {
                     console.log(snapshot.val());
                     this.setBeers(snapshot.val())
-
                 }
             })
         })
