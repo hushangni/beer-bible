@@ -90,9 +90,7 @@ export default class Finder extends Component {
                 </div>
                 <div className="book">
                     <Link to="/RecipeBook">
-                        <button>
-                            press this bible
-                        </button>
+                        <button>press this bible</button>
                     </Link>
                 </div>
                 <form>

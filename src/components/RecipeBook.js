@@ -62,7 +62,7 @@ class RecipeBook extends Component {
         }
         firebase.auth().onAuthStateChanged((user) => {
             firebase.database().ref().child(`users/${user.uid}/beerRecipes`).once('value', (snapshot) => {
-                console.log("snapshot in full recipe", snapshot.val())
+
                 if (snapshot.val()) {
                     const hopsArr = beer.ingredients.hops.map((hop) => {
                         if(hop.add !== "dry hop"){

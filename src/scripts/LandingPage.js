@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import firebase from "./firebase";
-import { BrowserRouter as Router,Redirect, Route} from 'react-router-dom'
+import { BrowserRouter as Router,Redirect, Route} from 'react-router-dom';
 
 class LandingPage extends Component {
     constructor(){
@@ -88,7 +88,6 @@ class LandingPage extends Component {
                 <div className="heading">
                     <div class="neon">Beer </div>
                     <div class="flux">Bible </div>
-                    <div class="neon">🍺</div>
                 </div>
             </header>
         )
