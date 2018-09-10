@@ -28,6 +28,7 @@ class RecipeBook extends Component {
         })
     }
 
+
     setBeers = (snapshot) => {
         const beersArray = Object.entries(snapshot)
             .map((beer) => {
@@ -50,12 +51,8 @@ class RecipeBook extends Component {
     }
 
     displayFullRecipe = (beer) => {
-<<<<<<< HEAD
-        if (beer) {
-=======
         if (beer == "nope") {
 
->>>>>>> b24c2eedd10f97c7a092ce776a08d998c3bdb065
             this.setState({
                 beerName: null
             }, () => {
@@ -65,16 +62,18 @@ class RecipeBook extends Component {
         }
         firebase.auth().onAuthStateChanged((user) => {
             firebase.database().ref().child(`users/${user.uid}/beerRecipes`).once('value', (snapshot) => {
-<<<<<<< HEAD
-=======
                 console.log("snapshot in full recipe", snapshot.val())
->>>>>>> b24c2eedd10f97c7a092ce776a08d998c3bdb065
                 if (snapshot.val()) {
                     const hopsArr = beer.ingredients.hops.map((hop) => {
-                        return `add ${hop.name} hops, ${hop.amount.value} ${hop.amount.unit} at the ${hop.add}`;
+                        if(hop.add !== "dry hop"){
+                            return `Add ${hop.amount.value} ${hop.amount.unit} of ${hop.name} hops, at the ${hop.add} of the boil. `;
+                        }
+                        else{
+                            return `Wait and add ${hop.amount.value} ${hop.amount.unit} of ${hop.name} dry hops after wort has been cooled.`
+                        }
                     });
                     const maltArr = beer.ingredients.malt.map((malt) => {
-                        return `add ${malt.name} malt, ${malt.amount.value} ${malt.amount.unit}`;
+                        return `${malt.amount.value} ${malt.amount.unit} of ${malt.name} malts, `;
                     })
                     this.setBeers(snapshot.val());
                     beer.ingredients.hops
@@ -87,7 +86,7 @@ class RecipeBook extends Component {
                         beerYeast: beer.ingredients.yeast,
                         beerVolume: beer.volume,
                         beerMethodMashTemp: beer.methodMashTemp,
-                        beerMethodMashDuration: beer.methoMashDuration,
+                        beerMethodMashDuration: beer.methodMashDuration,
                         foodPairings: beer.foodPairings,
                         brewersTips: beer.brewersTips
                     })
@@ -128,10 +127,6 @@ class RecipeBook extends Component {
     }
 
     deleteRecipe = (beername) => {
-<<<<<<< HEAD
-        console.log(this.state.beerName, "deleteing this beer");
-        this.displayFullRecipe();
-=======
         if (beername == this.state.beerName) {
             this.displayFullRecipe("nope");
         }
@@ -141,7 +136,6 @@ class RecipeBook extends Component {
                 beersList: []
             })
         }
->>>>>>> b24c2eedd10f97c7a092ce776a08d998c3bdb065
         const beerDbRef = firebase.database().ref().child(`users/${firebase.auth().currentUser.uid}/beerRecipes/${beername}`);
         beerDbRef.remove();
     }
