@@ -50,7 +50,7 @@ class RecipeBook extends Component {
     }
 
     displayFullRecipe = (beer) => {
-        if (beer == "nope") {
+        if (beer) {
             this.setState({
                 beerName: null
             }, () => {
@@ -59,11 +59,6 @@ class RecipeBook extends Component {
         }
         firebase.auth().onAuthStateChanged((user) => {
             firebase.database().ref().child(`users/${user.uid}/beerRecipes`).once('value', (snapshot) => {
-<<<<<<< HEAD
-                console.log(snapshot.val());
-=======
-                console.log(snapshot)
->>>>>>> 71a52d0d54e91b1e928745147207ada65192aa29
                 if (snapshot.val()) {
                     const hopsArr = beer.ingredients.hops.map((hop) => {
                         return `add ${hop.name} hops, ${hop.amount.value} ${hop.amount.unit} at the ${hop.add}`;
@@ -124,7 +119,7 @@ class RecipeBook extends Component {
 
     deleteRecipe = (beername) => {
         console.log(this.state.beerName, "deleteing this beer");
-        this.displayFullRecipe("nope");
+        this.displayFullRecipe();
         const beerDbRef = firebase.database().ref().child(`users/${firebase.auth().currentUser.uid}/beerRecipes/${beername}`);
         beerDbRef.remove();
     }

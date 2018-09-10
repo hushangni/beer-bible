@@ -91,9 +91,7 @@ export default class Finder extends Component {
                 <div className="book">
                     <Link to="/RecipeBook">
                         <button>
-                            <svg>
-                                
-                            </svg>
+                            press this bible
                         </button>
                     </Link>
                 </div>
