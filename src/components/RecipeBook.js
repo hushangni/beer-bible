@@ -14,16 +14,15 @@ class RecipeBook extends Component {
         this.state = {
             beersList: [],
             displayFullRecipe: false,
-            beerToDisplay: null
+            beerToDisplay: null,
+            beersLeft: 0
         }
     }
     componentDidMount() {
         firebase.auth().onAuthStateChanged((user) => {
             firebase.database().ref().child(`users/${user.uid}/beerRecipes`).on('value', (snapshot) => {
                 if (snapshot.val()) {
-                    console.log(snapshot.val());
                     this.setBeers(snapshot.val())
-
                 }
             })
         })
@@ -45,21 +44,24 @@ class RecipeBook extends Component {
                 })
             })
         this.setState({
-            beersList: beersArray
+            beersList: beersArray,
+            beersLeft: beersArray.length
         })
     }
 
     displayFullRecipe = (beer) => {
         if (beer == "nope") {
+
             this.setState({
                 beerName: null
             }, () => {
-                return;
+
             })
+            return;
         }
         firebase.auth().onAuthStateChanged((user) => {
             firebase.database().ref().child(`users/${user.uid}/beerRecipes`).once('value', (snapshot) => {
-                console.log(snapshot)
+                console.log("snapshot in full recipe", snapshot.val())
                 if (snapshot.val()) {
                     const hopsArr = beer.ingredients.hops.map((hop) => {
                         return `add ${hop.name} hops, ${hop.amount.value} ${hop.amount.unit} at the ${hop.add}`;
@@ -119,8 +121,15 @@ class RecipeBook extends Component {
     }
 
     deleteRecipe = (beername) => {
-        console.log(this.state.beerName, "deleteing this beer");
-        this.displayFullRecipe("nope");
+        if (beername == this.state.beerName) {
+            this.displayFullRecipe("nope");
+        }
+        if (this.state.beersLeft === 1) {
+            this.setState({
+                beersLeft: 0,
+                beersList: []
+            })
+        }
         const beerDbRef = firebase.database().ref().child(`users/${firebase.auth().currentUser.uid}/beerRecipes/${beername}`);
         beerDbRef.remove();
     }
