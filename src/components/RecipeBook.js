@@ -41,7 +41,7 @@ class RecipeBook extends Component {
                     methodMashTemp: beery.method.mash_temp[0].temp.value,
                     methodMashDuration: beery.method.mash_temp[0].duration,
                     foodPairings: beery.food_pairing,
-                    brewersTips: beery.brewers_tips
+                    brewersTips: beery.brewers_tips,
                 })
             })
         this.setState({
@@ -50,10 +50,20 @@ class RecipeBook extends Component {
     }
 
     displayFullRecipe = (beer) => {
-        console.log(firebase.auth().currentUser, "current user");
+        if (beer == "nope") {
+            this.setState({
+                beerName: null
+            }, () => {
+                return;
+            })
+        }
         firebase.auth().onAuthStateChanged((user) => {
             firebase.database().ref().child(`users/${user.uid}/beerRecipes`).once('value', (snapshot) => {
+<<<<<<< HEAD
                 console.log(snapshot.val());
+=======
+                console.log(snapshot)
+>>>>>>> 71a52d0d54e91b1e928745147207ada65192aa29
                 if (snapshot.val()) {
                     const hopsArr = beer.ingredients.hops.map((hop) => {
                         return `add ${hop.name} hops, ${hop.amount.value} ${hop.amount.unit} at the ${hop.add}`;
@@ -85,7 +95,7 @@ class RecipeBook extends Component {
                     }
                 }
             })
-        })
+        });
     }
 
     addNotesToDatabase = () => {
@@ -110,10 +120,14 @@ class RecipeBook extends Component {
         e.nativeEvent.stopImmediatePropagation();
         this.addNotesToDatabase();
         // document.getElementById('notes').value = '';
-
     }
 
-
+    deleteRecipe = (beername) => {
+        console.log(this.state.beerName, "deleteing this beer");
+        this.displayFullRecipe("nope");
+        const beerDbRef = firebase.database().ref().child(`users/${firebase.auth().currentUser.uid}/beerRecipes/${beername}`);
+        beerDbRef.remove();
+    }
 
     render() {
         return (
@@ -127,17 +141,19 @@ class RecipeBook extends Component {
                 <aside className="beers-list">
                     {this.state.beersList.map((beer) => {
                         return (
-                            <div onClick={() => { this.displayFullRecipe(beer) }} className="beer-box" key={beer.key}>
-                                <h4>{beer.name}</h4>
-                                {/* <p>{beer.brewersTips}</p> */}
+                            <div>
+                                <div onClick={() => { this.displayFullRecipe(beer) }} className="beer-box" key={beer.key}>
+                                    <h4>{beer.name}</h4>
+                                    {/* <p>{beer.brewersTips}</p> */}
+                                </div>
+                                <button onClick={() => this.deleteRecipe(beer.name)} id={beer.key}><i class="fas fa-trash-alt"></i></button>
                             </div>
+
                         )
                     })}
                 </aside>
-    
                 {
                     this.state.beerName ?
-                    
                         <FullRecipe
                             beerName={this.state.beerName}
                             beerHops={this.state.beerHops}
@@ -147,16 +163,14 @@ class RecipeBook extends Component {
                             beerMethodMashTemp={this.state.beerMethodMashTemp}
                             beerMethodMashDuration={this.state.beerMethodMashDuration}
                             foodPairings={this.state.foodPairings}
-                            brewersTips={this.state.brewersTips} /> : null
+                            brewersTips={this.state.brewersTips} /> : <p>NOTHING TO HSEE HERE SORRY</p>
                 }
                 <form action="" className="notes-box">
                     <h3 className="notes-header">Notes</h3>
                     <textarea type="text" name="notes" id="notes" placeholder="Notes from your brewing experience for this beer here..." onChange={this.handleChange} />
                     <label htmlFor="notes" className="visually-hidden">enter the notes for your beer brewing experience here</label>
-
                     <input type="submit" value="save note" className="save-note-button button" onClick={this.handleSave} />
                 </form>
-
             </main>
         )
     }
