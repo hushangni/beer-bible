@@ -1,7 +1,7 @@
 @import 'partials/_setup.scss';
-
+@import 'partials/_landingPage.scss';
 @import 'partials/_finder.scss';
-
+@import 'partials/_recipeBook.scss';
 
 img {
     width: 100%;
@@ -12,10 +12,33 @@ button {
     border: none;
 }
 
+textarea {
+    resize: none;
+}
+
 ul {
     list-style: none;
 }
 
+.wrapper {
+    width: 85%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
 .show {
     display: block;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }

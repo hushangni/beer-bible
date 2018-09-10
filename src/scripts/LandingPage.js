@@ -86,7 +86,9 @@ class LandingPage extends Component {
                     {formLogin}
                 </div>
                 <div className="heading">
-                    <h1 className="heading">Beer Bible</h1>
+                    <div class="neon">Beer </div>
+                    <div class="flux">Bible </div>
+                    <div class="neon">🍺</div>
                 </div>
             </header>
         )
