@@ -14,16 +14,15 @@ class RecipeBook extends Component {
         this.state = {
             beersList: [],
             displayFullRecipe: false,
-            beerToDisplay: null
+            beerToDisplay: null,
+            beersLeft: 0
         }
     }
     componentDidMount() {
         firebase.auth().onAuthStateChanged((user) => {
             firebase.database().ref().child(`users/${user.uid}/beerRecipes`).on('value', (snapshot) => {
                 if (snapshot.val()) {
-                    console.log(snapshot.val());
                     this.setBeers(snapshot.val())
-
                 }
             })
         })
@@ -45,20 +44,31 @@ class RecipeBook extends Component {
                 })
             })
         this.setState({
-            beersList: beersArray
+            beersList: beersArray,
+            beersLeft: beersArray.length
         })
     }
 
     displayFullRecipe = (beer) => {
+<<<<<<< HEAD
         if (beer) {
+=======
+        if (beer == "nope") {
+
+>>>>>>> b24c2eedd10f97c7a092ce776a08d998c3bdb065
             this.setState({
                 beerName: null
             }, () => {
-                return;
+
             })
+            return;
         }
         firebase.auth().onAuthStateChanged((user) => {
             firebase.database().ref().child(`users/${user.uid}/beerRecipes`).once('value', (snapshot) => {
+<<<<<<< HEAD
+=======
+                console.log("snapshot in full recipe", snapshot.val())
+>>>>>>> b24c2eedd10f97c7a092ce776a08d998c3bdb065
                 if (snapshot.val()) {
                     const hopsArr = beer.ingredients.hops.map((hop) => {
                         return `add ${hop.name} hops, ${hop.amount.value} ${hop.amount.unit} at the ${hop.add}`;
@@ -118,8 +128,20 @@ class RecipeBook extends Component {
     }
 
     deleteRecipe = (beername) => {
+<<<<<<< HEAD
         console.log(this.state.beerName, "deleteing this beer");
         this.displayFullRecipe();
+=======
+        if (beername == this.state.beerName) {
+            this.displayFullRecipe("nope");
+        }
+        if (this.state.beersLeft === 1) {
+            this.setState({
+                beersLeft: 0,
+                beersList: []
+            })
+        }
+>>>>>>> b24c2eedd10f97c7a092ce776a08d998c3bdb065
         const beerDbRef = firebase.database().ref().child(`users/${firebase.auth().currentUser.uid}/beerRecipes/${beername}`);
         beerDbRef.remove();
     }
