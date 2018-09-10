@@ -22,19 +22,19 @@ export default class Finder extends Component {
         if (yeast) {
             beerIng.yeast = yeast;
         }
-
+        
         const hops=document.getElementsByClassName("hops")[0].value;
         if (hops) {
             beerIng.hops = hops;
         }
-
+        
         const url = "https://api.punkapi.com/v2/beers"
-
+        
         axios.get(url, {
             params: beerIng
         }).then(res => {
             console.log(res.data);
-
+            
             if(res.data.length === 0){
                 const beerItem = Object.keys(beerIng)[0];
                 axios.get(url,{
@@ -51,28 +51,28 @@ export default class Finder extends Component {
                 this.setState({
                     beers: res.data
                 });
-            }
+            }   
         })
-    }
-
+    }   
+    
     handleInfo = (beerId) => {
         document.getElementById(beerId).classList.add('show');
     }
-
+    
     getSingleHops = (hopsArray) => {
         let hopsSet = new Set();
         for (let i = 0; i < hopsArray.length; i++) {
             hopsSet.add(hopsArray[i].name);
         }
         const hopsArrayNew = Array.from(hopsSet);
-
+        
         const html = hopsArrayNew.map((hop) => {
             return(<li>{hop}</li>);
         });
-
+        
         return html;
     }
-
+    
     handleClose = (beerId) => {
         document.getElementById(beerId).classList.remove('show');
     }
@@ -82,6 +82,31 @@ export default class Finder extends Component {
         })
     }
 
+    foodRecommendations = (e) => {
+        e.preventDefault();
+        const yummlyID = "?_app_id=1ca882d1";
+        const yummlyKey = "&_app_key=9f727f501d139e3a8cc8a2bfebddaf3a";
+        const yummlyUrl = `https://api.yummly.com/v1/api/recipes${yummlyID}${yummlyKey}`;
+        // instead of the below element we just need to grab the food_pairing of whichever recipe item that is clicked on from the database. This is just a placeholder example because i wasn't sure what to put 
+        const foodList=(this.state.beers[1].food_pairing);
+        foodList.map(function (food){
+            console.log(food);
+            axios.get(yummlyUrl, {
+                params: {
+                    q: food,
+                    requirePictures: true,
+                    maxResult: "1",
+                    start: "1"
+                }
+            })
+                .then((res) => {
+                    console.log(
+                        res.data.matches[0]
+                    )
+                })
+        })
+    }
+    
     render(){
         return(
             <div>
@@ -107,6 +132,7 @@ export default class Finder extends Component {
                         <input type="text" className="hops" />
                     </div>
                     <button onClick={this.handleSubmit}>Submit</button>
+                    <button onClick={this.foodRecommendations}>Food</button>
                 </form>
 
                 <div className="search-results">
