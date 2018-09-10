@@ -28,6 +28,7 @@ class RecipeBook extends Component {
         })
     }
 
+
     setBeers = (snapshot) => {
         const beersArray = Object.entries(snapshot)
             .map((beer) => {
@@ -64,10 +65,15 @@ class RecipeBook extends Component {
 
                 if (snapshot.val()) {
                     const hopsArr = beer.ingredients.hops.map((hop) => {
-                        return `add ${hop.name} hops, ${hop.amount.value} ${hop.amount.unit} at the ${hop.add}`;
+                        if(hop.add !== "dry hop"){
+                            return `Add ${hop.amount.value} ${hop.amount.unit} of ${hop.name} hops, at the ${hop.add} of the boil. `;
+                        }
+                        else{
+                            return `Wait and add ${hop.amount.value} ${hop.amount.unit} of ${hop.name} dry hops after wort has been cooled.`
+                        }
                     });
                     const maltArr = beer.ingredients.malt.map((malt) => {
-                        return `add ${malt.name} malt, ${malt.amount.value} ${malt.amount.unit}`;
+                        return `${malt.amount.value} ${malt.amount.unit} of ${malt.name} malts, `;
                     })
                     this.setBeers(snapshot.val());
                     beer.ingredients.hops
@@ -80,7 +86,7 @@ class RecipeBook extends Component {
                         beerYeast: beer.ingredients.yeast,
                         beerVolume: beer.volume,
                         beerMethodMashTemp: beer.methodMashTemp,
-                        beerMethodMashDuration: beer.methoMashDuration,
+                        beerMethodMashDuration: beer.methodMashDuration,
                         foodPairings: beer.foodPairings,
                         brewersTips: beer.brewersTips
                     })

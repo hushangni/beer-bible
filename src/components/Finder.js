@@ -22,19 +22,19 @@ export default class Finder extends Component {
         if (yeast) {
             beerIng.yeast = yeast;
         }
-
+        
         const hops=document.getElementsByClassName("hops")[0].value;
         if (hops) {
             beerIng.hops = hops;
         }
-
+        
         const url = "https://api.punkapi.com/v2/beers"
-
+        
         axios.get(url, {
             params: beerIng
         }).then(res => {
             console.log(res.data);
-
+            
             if(res.data.length === 0){
                 const beerItem = Object.keys(beerIng)[0];
                 axios.get(url,{
@@ -51,28 +51,28 @@ export default class Finder extends Component {
                 this.setState({
                     beers: res.data
                 });
-            }
+            }   
         })
-    }
-
+    }   
+    
     handleInfo = (beerId) => {
         document.getElementById(beerId).classList.add('show');
     }
-
+    
     getSingleHops = (hopsArray) => {
         let hopsSet = new Set();
         for (let i = 0; i < hopsArray.length; i++) {
             hopsSet.add(hopsArray[i].name);
         }
         const hopsArrayNew = Array.from(hopsSet);
-
+        
         const html = hopsArrayNew.map((hop) => {
             return(<li>{hop}</li>);
         });
-
+        
         return html;
     }
-
+    
     handleClose = (beerId) => {
         document.getElementById(beerId).classList.remove('show');
     }
@@ -81,7 +81,7 @@ export default class Finder extends Component {
             beer
         })
     }
-
+    
     render(){
         return(
             <div>
