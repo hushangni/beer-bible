@@ -56,7 +56,8 @@ export default class Finder extends Component {
     }
 
     handleInfo = (beerId) => {
-        document.getElementById(beerId).classList.add('show');
+        document.getElementById(beerId).style.visibility = "visible";
+        document.getElementById(beerId).style.opacity = 1;
     }
 
     getSingleHops = (hopsArray) => {
@@ -74,7 +75,8 @@ export default class Finder extends Component {
     }
 
     handleClose = (beerId) => {
-        document.getElementById(beerId).classList.remove('show');
+        document.getElementById(beerId).style.visibility = "hidden";
+        document.getElementById(beerId).style.opacity = 0;
     }
     handleSave = (beer) => {
         console.log('beer.name', beer.name);
@@ -89,7 +91,7 @@ export default class Finder extends Component {
 
     render(){
         return(
-            <div>
+            <div className="finder">
                 <div className="finder-container">
                     <div className="auth">
                         <button className="log-out" onClick={()=>this.props.logout()}>Log Out</button>
@@ -101,7 +103,7 @@ export default class Finder extends Component {
                         </Link>
                     </div>
                 </div>
-                
+
                 <form>
                     <div>
                         <label htmlFor="">Malt</label>

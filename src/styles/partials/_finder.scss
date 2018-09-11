@@ -31,20 +31,21 @@
 .search-results {
     position: relative;
     text-align: center;
-    background: white;
     height: 100%;
 
     .beer-item {
-        width: calc(25% - 10px);
-        margin: 5px;
+        width: calc(25% - 20px);
+        margin: 10px;
         float: left;
         padding: 3% 2%;
         height: 500px;
         border: 3px solid $yellow;
-        background-color: #fff6e5;
+        background-color: white;
+        transition: all 0.3s ease-in;
 
         .beer-item-name {
             line-height: 2.7rem;
+            transition: all 0.3s ease-in;
         }
 
         img {
@@ -52,21 +53,71 @@
             height: 300px;
             margin: 0 auto;
         }
+
+        &:hover {
+            box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+        }
+
+        &:hover .beer-item-name {
+            color: $yellow;
+        }
+
+        .info-button i,
+        .add-button i {
+            font-size: 4.2rem;
+            transition: all 0.2s ease-in;
+
+            &:hover{
+                color: $yellow;
+            }
+        }
+
+        .add-button i:hover {
+            animation: spin 2s infinite;
+        }
+
+        .info-button i:hover {
+            animation: pulse 2s infinite;
+        }
     }
 }
 
 .beer-item-modal {
-    display: none;
-    background-color: yellow;
+    opacity: 0;
+    visibility: hidden;
+    border: 5px solid $dkblue;
+    background: #eee;
+    color: $dkblue;
+    padding: 3%;
     position: fixed;
     width: 70%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: visibility 0s, opacity 0.5s linear;
+    box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.8);
     .ingredient-list {
         .list {
             width: 33%;
             float: left;
+        }
+    }
+
+    .close-modal-button {
+        background: transparent;
+    }
+
+    .close-modal-button i {
+        font-size: 4.2rem;
+        color: $dkblue;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        transition: all 0.2s ease-in;
+
+        &:hover{
+            color: $yellow;
+            animation: spin 2s infinite;
         }
     }
 }
