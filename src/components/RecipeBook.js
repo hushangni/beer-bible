@@ -15,7 +15,8 @@ class RecipeBook extends Component {
             beersList: [],
             displayFullRecipe: false,
             beerToDisplay: null,
-            beersLeft: 0
+            beersLeft: 0,
+            something:false
         }
     }
     componentDidMount() {
@@ -88,7 +89,7 @@ class RecipeBook extends Component {
                         beerMethodMashTemp: beer.methodMashTemp,
                         beerMethodMashDuration: beer.methodMashDuration,
                         foodPairings: beer.foodPairings,
-                        brewersTips: beer.brewersTips
+                        brewersTips: beer.brewersTips,
                     })
                     const beerNa = beer.name;
 
@@ -176,7 +177,8 @@ class RecipeBook extends Component {
                             beerMethodMashTemp={this.state.beerMethodMashTemp}
                             beerMethodMashDuration={this.state.beerMethodMashDuration}
                             foodPairings={this.state.foodPairings}
-                            brewersTips={this.state.brewersTips} />
+                            brewersTips={this.state.brewersTips} 
+                            />
                         :
                         <section className="full-recipe">
                             <h3>Choose a Recipe to view!</h3>
