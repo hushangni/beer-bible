@@ -200,6 +200,10 @@ body {
     float: left;
     padding: 6%; }
 
+.beerbible {
+  width: 150px;
+  margin: 15px; }
+
 .beer-item-modal {
   display: none;
   background-color: yellow;
@@ -213,46 +217,170 @@ body {
     float: left; }
 
 .recipe-book-container {
-  height: 100%;
+  height: 100vh;
   width: 100%; }
+
+.recipe-button {
+  border: 1px solid #00245b;
+  margin: 5px 5px 5px 5px;
+  padding: 10px; }
+
+.recipe-book-header {
+  background-image: url(/assets/header-wood.jpg);
+  width: 100%;
+  height: 150px;
+  margin-bottom: 10px;
+  border-radius: 7px; }
+  .recipe-book-header .finder {
+    float: left;
+    margin-top: 50px; }
+  .recipe-book-header h2 {
+    float: left;
+    margin: 50px 0 0 20px;
+    text-shadow: 1px 1px 3px white; }
+  .recipe-book-header .beerbible.open {
+    float: right; }
 
 .beers-list {
   float: right;
-  width: 45%;
-  height: 25vh;
+  width: calc(35% - 10px);
+  height: 30vh;
   overflow: auto;
-  background-color: #fcdccf; }
+  background-color: #00778a;
+  border-radius: 7px;
+  margin: 0 0 10px 10px;
+  box-shadow: 2px 2px 2px black; }
   .beers-list .beer-box {
-    background-color: #e7d3d3;
+    width: 80%;
+    height: 50px;
+    background-color: white;
+    float: left;
+    border: 1px solid #00245b;
+    margin: 5px;
+    padding: 10px;
     cursor: pointer; }
+    .beers-list .beer-box h4 {
+      margin: 0; }
+  .beers-list .trash {
+    float: left;
+    width: 12%;
+    height: 50px; }
+
+.notes-box {
+  background-color: #00778a;
+  float: right;
+  width: calc(35% - 10px);
+  height: 50vh;
+  padding: 0 25px;
+  margin-left: 10px;
+  border-radius: 7px;
+  box-shadow: 2px 2px 2px black; }
+  .notes-box #notes {
+    width: 100%;
+    height: 70%;
+    border: none;
+    border-radius: 7px; }
 
 .full-recipe {
   float: left;
-  width: 55%;
+  width: 65%;
+  height: 81vh;
   padding: 25px;
-  background-color: #ebeae5; }
+  background-color: #ebeae5;
+  border-radius: 7px;
+  box-shadow: 2px 2px 2px black; }
 
-.notes-box {
-  background-color: #d4ebf0;
-  float: right;
-  width: 45%;
-  height: 60vh;
-  padding: 25px; }
-  .notes-box #notes {
+.dave-wrapper {
+  position: relative; }
+  .dave-wrapper img {
+    width: 40%; }
+  .dave-wrapper h4 {
     width: 100%;
-    height: 80%;
-    border: none; }
+    padding: 0;
+    margin: 0;
+    text-align: left; }
+  .dave-wrapper .brewer-tips-modal {
+    display: none;
+    background-image: url(/assets/speech-bubble.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 400px;
+    height: 350px;
+    top: -70px;
+    left: 325px;
+    transform: translate(-50%, -50%); }
+    .dave-wrapper .brewer-tips-modal h4 {
+      padding: 0 30px;
+      margin: 0;
+      color: #00245b; }
+    .dave-wrapper .brewer-tips-modal p {
+      padding: 0 30px;
+      color: #00245b; }
 
-.dave img {
-  width: 70%;
-  margin: 0 auto; }
+html {
+  font-size: 62.5%; }
+
+h1 {
+  font-size: 35px;
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif; }
+
+h2 {
+  font-size: 30px;
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+  text-align: left; }
+
+h3 {
+  font-size: 25px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif;
+  text-align: center; }
+
+h4 {
+  font-size: 20px;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif; }
+
+h5 {
+  font-size: 18px;
+  font-size: 1.8rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px; }
+
+ul, li {
+  font-size: 18px;
+  font-size: 1.8rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  padding: 10px 0; }
+
+p {
+  font-size: 18px;
+  font-size: 1.8rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px; }
+
+label, button {
+  font-size: 18px;
+  font-size: 1.8rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px; }
 
 img {
   width: 100%;
   display: block; }
 
-button {
-  border: none; }
+body {
+  background-color: #001a33; }
 
 textarea {
   resize: none; }
@@ -261,8 +389,8 @@ ul {
   list-style: none; }
 
 .wrapper {
-  width: 85%;
-  max-width: 1080px;
+  width: 90%;
+  max-width: 1500px;
   margin: 0 auto; }
 
 .show {

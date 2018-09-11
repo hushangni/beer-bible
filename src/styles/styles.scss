@@ -2,15 +2,19 @@
 @import 'partials/_landingPage.scss';
 @import 'partials/_finder.scss';
 @import 'partials/_recipeBook.scss';
+@import 'partials/_fullRecipe.scss';
+@import 'partials/_typography.scss';
 
 img {
     width: 100%;
     display: block;
 }
-
-button {
-    border: none;
+body {
+    background-color: #001a33;
 }
+// button {
+//     border: none;
+// }
 
 textarea {
     resize: none;
@@ -21,8 +25,8 @@ ul {
 }
 
 .wrapper {
-    width: 85%;
-    max-width: 1080px;
+    width: 90%;
+    max-width: 1500px;
     margin: 0 auto;
 }
 

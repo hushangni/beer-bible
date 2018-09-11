@@ -1,0 +1,35 @@
+// MODAL
+
+.dave-wrapper {
+    position: relative;
+    img {
+        width: 40%;
+    }
+    h4 {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+    }
+    .brewer-tips-modal {
+        // border: 1px solid red;
+        display: none;
+        background-image: url(/assets/speech-bubble.png);
+        background-repeat: no-repeat;
+        position: absolute;
+        width: 400px;
+        height: 350px;
+        top: -70px;
+        left: 325px;
+        transform: translate(-50%, -50%);
+        h4 {
+            padding: 0 30px;
+            margin: 0;
+            color: $dkblue;
+        }
+        p {
+            padding: 0 30px;
+            color: $dkblue;
+        }
+    }
+}

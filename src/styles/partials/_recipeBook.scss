@@ -1,44 +1,84 @@
-
 .recipe-book-container {
-    height: 100%;
+    height: 100vh;
     width: 100%;
 }
-
+.recipe-button {
+    border: 1px solid $dkblue;
+    margin: 5px 5px 5px 5px;
+    padding: 10px;
+}
+// ---- HEADER ----
+.recipe-book-header {
+    background-image: url(/assets/header-wood.jpg);
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    .finder {
+        float: left;
+        margin-top: 50px;
+    }
+    h2 {
+        float: left;
+        margin: 50px 0 0 20px;
+        text-shadow: 1px 1px 3px white;
+    }
+    .beerbible.open {
+        float: right;
+    }
+}
+// ---- ASIDE ----
 .beers-list {
     float: right;
-    width: 45%;
-    height: 25vh;
+    width: calc(35% - 10px);
+    height: 30vh;
     overflow: auto;
-    background-color: #fcdccf;
-
+    background-color: $ltblue;
+    border-radius: 7px;
+    margin: 0 0 10px 10px;
+    box-shadow: 2px 2px 2px black;
     .beer-box {
-        background-color: #e7d3d3;
+        width: 80%;
+        height: 50px;
+        background-color: white;
+        float: left;
+        border: 1px solid $dkblue;
+        margin: 5px;
+        padding: 10px;
         cursor: pointer;
+        h4 {
+            margin: 0;
+        }
+    }
+    .trash {
+        float: left;
+        width: 12%;
+        height: 50px;
     }
 }
-
-.full-recipe {
-    float: left;
-    // margin-top: 15vh;
-    width: 55%;
-    padding: 25px;
-    background-color: #ebeae5;
-}
-
 .notes-box {
-    background-color: #d4ebf0;
+    background-color: $ltblue;
     float: right;
-    width: 45%;
-    height: 60vh;
-    padding: 25px;
-
+    width: calc(35% - 10px);
+    height: 50vh;
+    padding: 0 25px;
+    margin-left: 10px;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px black;
     #notes {
         width: 100%;
-        height: 80%;
+        height: 70%;
         border: none;
+        border-radius: 7px;
     }
 }
-.dave img {
-    width: 70%;
-    margin: 0 auto;
+// ---- MAIN ----
+.full-recipe {
+    float: left;
+    width: 65%;
+    height: 81vh;
+    padding: 25px;
+    background-color: #ebeae5;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px black;
 }

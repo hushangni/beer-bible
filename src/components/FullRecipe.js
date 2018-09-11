@@ -25,13 +25,14 @@ class FullRecipe extends Component {
                     <li>4. Food pairings for your beer: {this.props.foodPairings} </li>
                     {/* <li>5. Brewer's tips: {this.props.brewersTips}</li> */}
                 </ul>
-                <div>
+                <div className="dave-wrapper clearfix">
                     <img onClick={() => this.handleInfo("dave")} src="/assets/dave.png"></img>
+                    <h4>Click on Dave the Brewmaster for tips</h4>
 
                     <div className="brewer-tips-modal" id="dave">
                         {/* id={brewersTips}> */}
                         <button className="button close-modal-button" onClick={() => this.handleClose("dave")}><i className="fas fa-times"></i></button>
-                        <h3>Tips from Dave the Brewmaster</h3>
+                        <h4>Dave the Brewmaster says:</h4>
                         <p>{this.props.brewersTips}</p>
                     </div>
 
