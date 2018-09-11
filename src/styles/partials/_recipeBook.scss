@@ -33,7 +33,7 @@
     width: calc(35% - 10px);
     height: 35vh;
     overflow: auto;
-    background-color: #00778a;
+    background-color: $ltblue;
     border-radius: 10px;
     margin-left: 10px;
     .beer-box-wrapper {
@@ -61,7 +61,7 @@
     }
 }
 .notes-box {
-    background-color: #00778a;
+    background-color: $ltblue;
     float: right;
     width: calc(35% - 10px);
     height: 45vh;
