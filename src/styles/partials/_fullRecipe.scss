@@ -1,0 +1,30 @@
+
+.full-recipe ul {
+    margin: 0;
+    padding: 0;
+    li {
+        padding: 5px 0;
+    }
+}
+
+.ask-dave {
+    position: relative;
+    img {
+        width: 50%;
+    }
+    .brewer-tips-modal {
+        display: none;
+        background-image: url(/assets/speech-bubble.png);
+        background-repeat: no-repeat;
+        position: absolute;
+        width: 350px;
+        height: 305px;
+        top: -15%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        h4, p {
+            padding: 5px 10px 0 25px;
+            margin: 0;
+        }
+    }
+}
