@@ -147,7 +147,6 @@ h1 {
   font-family: "Oswald", sans-serif; }
 
 h2 {
-
   font-size: 25px;
   font-size: 2.5rem;
   font-weight: 700;
@@ -339,10 +338,6 @@ body {
   .signUp:hover,
   .logIn:hover {
     color: #00778a; }
-
-
-.beer-bible {
-  width: 150px; }
 
 .finder-container {
   width: 90%;
