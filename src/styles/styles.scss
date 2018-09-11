@@ -1,14 +1,21 @@
 @import 'partials/_setup.scss';
+<<<<<<< HEAD
 @import 'partials/typography';
+=======
+@import 'partials/_typography.scss';
+>>>>>>> 1798143b92d1d408f7786b0fac4ecfd2f41e6383
 @import 'partials/_landingPage.scss';
 @import 'partials/_finder.scss';
 @import 'partials/_recipeBook.scss';
+@import 'partials/fullRecipe';
 
 img {
     width: 100%;
     display: block;
 }
-
+body {
+    background-color: #001a33;
+}
 button {
     border: none;
 }
@@ -22,8 +29,8 @@ ul {
 }
 
 .wrapper {
-    width: 85%;
-    max-width: 1080px;
+    width: 90%;
+    max-width: 1500px;
     margin: 0 auto;
 }
 

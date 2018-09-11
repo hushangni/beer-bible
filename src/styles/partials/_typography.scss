@@ -30,10 +30,16 @@ html {
 }
 h1 {
     @include title-styles (35);
+<<<<<<< HEAD
 
 }
 h2 {
     @include paragraph-styles (30);
+=======
+}
+h2 {
+    @include title-styles (30);
+>>>>>>> 1798143b92d1d408f7786b0fac4ecfd2f41e6383
 }
 
 h3 {
@@ -46,8 +52,14 @@ h5 {
     @include paragraph-styles(18);
 }
 ul, li {
-    @include paragraph-styles (18);
+    @include paragraph-styles (16);
 }
 p {
     @include paragraph-styles (18);
+<<<<<<< HEAD
+=======
+}
+button {
+    @include paragraph-styles (18);
+>>>>>>> 1798143b92d1d408f7786b0fac4ecfd2f41e6383
 }
