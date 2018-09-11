@@ -145,7 +145,7 @@ class RecipeBook extends Component {
             <main className="clearfix recipe-book-container wrapper">
                 <div className="recipe-book-header clearfix">
                     <Link to="/Finder">
-                        <button>Back to finder</button>
+                        <button>Back to Search</button>
                     </Link>
                     <h2>Your Recipes</h2>
                     <img src="/assets/beerbible_open.png" alt="open beer bible"></img>
