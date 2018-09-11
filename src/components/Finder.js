@@ -22,19 +22,19 @@ export default class Finder extends Component {
         if (yeast) {
             beerIng.yeast = yeast;
         }
-        
+
         const hops=document.getElementsByClassName("hops")[0].value;
         if (hops) {
             beerIng.hops = hops;
         }
-        
+
         const url = "https://api.punkapi.com/v2/beers"
-        
+
         axios.get(url, {
             params: beerIng
         }).then(res => {
             console.log(res.data);
-            
+
             if(res.data.length === 0){
                 const beerItem = Object.keys(beerIng)[0];
                 axios.get(url,{
@@ -51,49 +51,59 @@ export default class Finder extends Component {
                 this.setState({
                     beers: res.data
                 });
-            }   
+            }
         })
-    }   
-    
-    handleInfo = (beerId) => {
-        document.getElementById(beerId).classList.add('show');
     }
-    
+
+    handleInfo = (beerId) => {
+        document.getElementById(beerId).style.visibility = "visible";
+        document.getElementById(beerId).style.opacity = 1;
+    }
+
     getSingleHops = (hopsArray) => {
         let hopsSet = new Set();
         for (let i = 0; i < hopsArray.length; i++) {
             hopsSet.add(hopsArray[i].name);
         }
         const hopsArrayNew = Array.from(hopsSet);
-        
+
         const html = hopsArrayNew.map((hop) => {
             return(<li>{hop}</li>);
         });
-        
+
         return html;
     }
-    
+
     handleClose = (beerId) => {
-        document.getElementById(beerId).classList.remove('show');
+        document.getElementById(beerId).style.visibility = "hidden";
+        document.getElementById(beerId).style.opacity = 0;
     }
     handleSave = (beer) => {
+        console.log('beer.name', beer.name);
+
+        if (beer.name == `Devine Rebel (w/ Mikkeller)`) {
+            beer.name = beer.name.replace(/[^a-zA-Z ]/g, "");
+        }
         firebase.database().ref().child(`users/${firebase.auth().currentUser.uid}/beerRecipes/${beer.name}`).set({
             beer
         })
     }
-    
+
     render(){
         return(
-            <div>
-                <div className="auth">
-                    <button onClick={()=>this.props.logout()}>Log Out</button>
+            <div className="finder">
+                <div className="finder-container">
+                    <div className="auth">
+                        <button className="log-out" onClick={()=>this.props.logout()}>Log Out</button>
+                    </div>
+                    <h2>Search for Recipes</h2>
+                    <div className="book clearfix">
+                        <Link to="/RecipeBook">
+                            <img className="beer-bible" src="/assets/beerbible.png" alt="beer bible"></img>
+                        </Link>
+                    </div>
                 </div>
-                <div className="book">
-                    <Link to="/RecipeBook">
-                        <img className="beer-bible" src="/assets/beerbible.png" alt="beer bible"></img>
-                        <button>press this bible</button>
-                    </Link>
-                </div>
+
                 <form>
                     <div>
                         <label htmlFor="">Malt</label>
@@ -110,13 +120,13 @@ export default class Finder extends Component {
                     <button onClick={this.handleSubmit}>Submit</button>
                 </form>
 
-                <div className="search-results">
+                <div className="search-results wrapper clearfix">
                     {this.state.beers.map((beer) => {
                         return(
                             <React.Fragment >
                                 <div className="beer-item-modal" id={beer.id}>
                                     <button className="button close-modal-button" onClick={() => this.handleClose(beer.id)}><i className="fas fa-times"></i></button>
-                                    <h2>{beer.name}</h2>
+                                    <h2 className="beer-item-name">{beer.name}</h2>
                                     <p>{beer.description}</p>
                                     <div className="ingredient-list">
                                         <ul className="hops-list list">
@@ -138,8 +148,9 @@ export default class Finder extends Component {
                                     </div>
                                 </div>
                                 <div className="beer-item">
-                                    <img src={beer.image_url} alt="beer image"/>
-                                    <h2>{beer.name}</h2>
+
+                                    <img src={beer.image_url} alt="beer image" className="beer-image"/>
+                                    <h2 className="beer-item-name">{beer.name}</h2>
                                     <button className="button info-button" onClick={() => this.handleInfo(beer.id, beer)}><i class="fas fa-info-circle"></i></button>
                                     <button onClick={() => this.handleSave(beer)} className="button add-button"><i class="fas fa-plus-circle"></i></button>
                                 </div>
