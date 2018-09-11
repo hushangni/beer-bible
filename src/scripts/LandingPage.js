@@ -76,18 +76,18 @@ class LandingPage extends Component {
         }
         return (
             <header>
+                <div className="heading">
+                    <div class="neon">Beer </div>
+                    <div class="flux">Bible </div>
+                </div>
                 <div className="auth">
                     <nav className="wrapper">
-                        <ul>
+                        <ul className="clearfix">
                             <li><a href="" className="signUp" onClick={this.formShow}>Sign Up</a></li>
                             <li><a href="" className="logIn" onClick={this.formShow}>Log In</a></li>
                         </ul>
                     </nav>
                     {formLogin}
-                </div>
-                <div className="heading">
-                    <div class="neon">Beer </div>
-                    <div class="flux">Bible </div>
                 </div>
             </header>
         )
