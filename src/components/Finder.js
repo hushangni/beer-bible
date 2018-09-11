@@ -78,6 +78,7 @@ export default class Finder extends Component {
         document.getElementById(beerId).style.visibility = "hidden";
         document.getElementById(beerId).style.opacity = 0;
     }
+
     handleSave = (beer) => {
         console.log('beer.name', beer.name);
 
@@ -87,6 +88,18 @@ export default class Finder extends Component {
         firebase.database().ref().child(`users/${firebase.auth().currentUser.uid}/beerRecipes/${beer.name}`).set({
             beer
         })
+
+        document.getElementById('beerBible').classList.add('glow');
+        document.getElementById('beerBible').addEventListener("animationend", function() {
+            this.classList.remove('glow');
+        })
+
+        // $('.addtocart').click(function () {
+        //     $(this).addClass('on');
+        //     $(this).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (event) {
+        //         $(this).removeClass('on')
+        //     });
+        // });
     }
 
     render(){
@@ -95,27 +108,28 @@ export default class Finder extends Component {
                 <div className="finder-container">
                     <div className="auth">
                         <button className="log-out" onClick={()=>this.props.logout()}>Log Out</button>
+                        <i className="fas fa-backspace signout-symbol" onClick={() => this.props.logout()}></i>
                     </div>
-                    <h2>Search for Recipes</h2>
+                    <h2 className="search-recipe-header">Search for Recipes</h2>
                     <div className="book clearfix">
                         <Link to="/RecipeBook">
-                            <img className="beer-bible" src="/assets/beerbible.png" alt="beer bible"></img>
+                            <img className="beer-bible" id="beerBible" src="/assets/beerbible.png" alt="beer bible"></img>
                         </Link>
                     </div>
                 </div>
 
-                <form>
+                <form className="search-form">
                     <div>
                         <label htmlFor="">Malt</label>
-                        <input type="text" className="malt"/>
+                        <input type="text" className="malt" placeholder="caramalt, brown... "/>
                     </div>
                     <div>
                         <label htmlFor="">Yeast</label>
-                        <input type="text" className="yeast"/>
+                        <input type="text" className="yeast" placeholder="wyeast..."/>
                     </div>
                     <div>
                         <label htmlFor="">Hops</label>
-                        <input type="text" className="hops" />
+                        <input type="text" className="hops" placeholder="fuggles, honey... " />
                     </div>
                     <button onClick={this.handleSubmit}>Submit</button>
                 </form>
@@ -150,7 +164,7 @@ export default class Finder extends Component {
                                 <div className="beer-item">
 
                                     <img src={beer.image_url} alt="beer image" className="beer-image"/>
-                                    <h2 className="beer-item-name">{beer.name}</h2>
+                                    <h2 className="beer-item-name">{beer.name.length > 20 ? beer.name.slice(0, 20) + "..." : beer.name}</h2>
                                     <button className="button info-button" onClick={() => this.handleInfo(beer.id, beer)}><i class="fas fa-info-circle"></i></button>
                                     <button onClick={() => this.handleSave(beer)} className="button add-button"><i class="fas fa-plus-circle"></i></button>
                                 </div>
