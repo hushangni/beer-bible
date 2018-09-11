@@ -28,13 +28,14 @@ export default class GetFoodRecipes extends Component{
                 }
             })
             .then((res) => {
+                console.log(res)
 
                 if (res.data.matches[0]) {
-                    const foodRecipe={
-                        foodRecipeId: `https://api.yummly.com/v1/api/recipe${res.data.matches[0].id}`,
-                        foodImg: res.data.matches[0].imageUrlsBySize[90],
-                        foodName: res.data.matches[0].recipeName
-                    }
+                    const id=res.data.matches[0].id
+                    console.log(id);
+                    const foodRecipe = { 
+                    foodRecipeId: `https://www.yummly.com/recipe/${res.data.matches[0].id}`, 
+                    foodImg: res.data.matches[0].imageUrlsBySize[90], foodName: res.data.matches[0].recipeName };
                     foodObject.push(foodRecipe);
                 }
                 self.setState({
