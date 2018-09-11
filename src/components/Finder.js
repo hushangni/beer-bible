@@ -90,15 +90,18 @@ export default class Finder extends Component {
     render(){
         return(
             <div>
-                <div className="auth">
-                    <button onClick={()=>this.props.logout()}>Log Out</button>
+                <div className="finder-container">
+                    <div className="auth">
+                        <button className="log-out" onClick={()=>this.props.logout()}>Log Out</button>
+                    </div>
+                    <h2>Search for Recipes</h2>
+                    <div className="book clearfix">
+                        <Link to="/RecipeBook">
+                            <img className="beer-bible" src="/assets/beerbible.png" alt="beer bible"></img>
+                        </Link>
+                    </div>
                 </div>
-                <div className="book">
-                    <Link to="/RecipeBook">
-                        <img className="beer-bible" src="/assets/beerbible.png" alt="beer bible"></img>
-                        <button>press this bible</button>
-                    </Link>
-                </div>
+                
                 <form>
                     <div>
                         <label htmlFor="">Malt</label>

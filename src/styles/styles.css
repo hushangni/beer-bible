@@ -279,8 +279,28 @@ body {
   .logIn:hover {
     color: #00778a; }
 
-.beer-bible {
-  width: 150px; }
+.finder-container {
+  width: 90%;
+  height: 150px;
+  margin: 0 auto;
+  background-image: url(/assets/header-wood.jpg);
+  border-radius: 10px; }
+  .finder-container .auth {
+    float: left; }
+    .finder-container .auth .log-out {
+      padding: 15px;
+      margin: 45px 0 0 15px;
+      border: 1px solid #00245b; }
+  .finder-container h2 {
+    float: left;
+    padding: 20px 0 0 20px;
+    text-shadow: 1px 1px 5px white; }
+  .finder-container .book {
+    float: right; }
+    .finder-container .book .beer-bible {
+      float: left;
+      width: 150px;
+      padding: 3%; }
 
 .search-results {
   position: relative;

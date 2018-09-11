@@ -1,5 +1,31 @@
-.beer-bible {
-    width: 150px;
+.finder-container {
+    width: 90%;
+    height: 150px;
+    margin: 0 auto;
+    background-image: url(/assets/header-wood.jpg);
+    border-radius: 10px;
+    // margin-bottom: 10px;
+    .auth {
+        float: left;
+        .log-out {
+            padding: 15px;
+            margin: 45px 0 0 15px;
+            border: 1px solid $dkblue;
+        }
+    }
+    h2 {
+        float: left;
+        padding: 20px 0 0 20px;
+        text-shadow: 1px 1px 5px white;
+    }
+    .book {
+        float: right;
+        .beer-bible {
+            float: left;
+            width: 150px;
+            padding: 3%;
+        }
+    }
 }
 
 .search-results {
