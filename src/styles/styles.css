@@ -147,8 +147,9 @@ h1 {
   font-family: "Oswald", sans-serif; }
 
 h2 {
-  font-size: 30px;
-  font-size: 3rem;
+
+  font-size: 25px;
+  font-size: 2.5rem;
   font-weight: 700;
   font-family: "Oswald", sans-serif; }
 
@@ -191,6 +192,66 @@ button {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
   letter-spacing: 1px; }
+
+@keyframes shine {
+  0% {
+    top: -120%;
+    left: -120%; }
+  10% {
+    left: 100%;
+    top: 100%; }
+  20% {
+    left: 100%;
+    top: 100%; }
+  100% {
+    left: 100%;
+    top: 100%; } }
+
+@keyframes shake {
+  10%, 50% {
+    transform: translate3d(-1px, 0, 0); }
+  15%, 45% {
+    transform: translate3d(2px, 0, 0); }
+  20%, 30%, 40% {
+    transform: translate3d(-4px, 0, 0); }
+  25%, 35% {
+    transform: translate3d(4px, 0, 0); } }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+@keyframes pulse {
+  0% {
+    transform: scale(1); }
+  30% {
+    transform: scale(1); }
+  40% {
+    transform: scale(1.1); }
+  50% {
+    transform: scale(1); }
+  60% {
+    transform: scale(1); }
+  70% {
+    transform: scale(1.07); }
+  80% {
+    transform: scale(1); }
+  100% {
+    transform: scale(1); } }
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(10deg); }
+  25% {
+    transform: rotate(-10deg); }
+  50% {
+    transform: rotate(20deg); }
+  75% {
+    transform: rotate(-5deg); }
+  100% {
+    transform: rotate(0deg); } }
 
 html,
 body {
@@ -279,29 +340,98 @@ body {
   .logIn:hover {
     color: #00778a; }
 
+
 .beer-bible {
   width: 150px; }
+
+.finder-container {
+  width: 90%;
+  height: 150px;
+  margin: 0 auto;
+  background-image: url(/assets/header-wood.jpg);
+  border-radius: 10px; }
+  .finder-container .auth {
+    float: left; }
+    .finder-container .auth .log-out {
+      padding: 15px;
+      margin: 45px 0 0 15px;
+      border: 1px solid #00245b; }
+  .finder-container h2 {
+    float: left;
+    padding: 20px 0 0 20px;
+    text-shadow: 1px 1px 5px white; }
+  .finder-container .book {
+    float: right; }
+    .finder-container .book .beer-bible {
+      float: left;
+      width: 150px;
+      padding: 3%; }
 
 .search-results {
   position: relative;
   text-align: center;
   height: 100%; }
   .search-results .beer-item {
-    width: 25%;
+    width: calc(25% - 20px);
+    margin: 10px;
     float: left;
-    padding: 6%; }
+    padding: 3% 2%;
+    height: 500px;
+    border: 3px solid #ffb300;
+    background-color: white;
+    transition: all 0.3s ease-in; }
+    .search-results .beer-item .beer-item-name {
+      line-height: 2.7rem;
+      transition: all 0.3s ease-in; }
+    .search-results .beer-item img {
+      width: auto;
+      height: 300px;
+      margin: 0 auto; }
+    .search-results .beer-item:hover {
+      box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8); }
+    .search-results .beer-item:hover .beer-item-name {
+      color: #ffb300; }
+    .search-results .beer-item .info-button i,
+    .search-results .beer-item .add-button i {
+      font-size: 4.2rem;
+      transition: all 0.2s ease-in; }
+      .search-results .beer-item .info-button i:hover,
+      .search-results .beer-item .add-button i:hover {
+        color: #ffb300; }
+    .search-results .beer-item .add-button i:hover {
+      animation: spin 2s infinite; }
+    .search-results .beer-item .info-button i:hover {
+      animation: pulse 2s infinite; }
 
 .beer-item-modal {
-  display: none;
-  background-color: yellow;
+  opacity: 0;
+  visibility: hidden;
+  border: 5px solid #00245b;
+  background: #eee;
+  color: #00245b;
+  padding: 3%;
   position: fixed;
   width: 70%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); }
+  transform: translate(-50%, -50%);
+  transition: visibility 0s, opacity 0.5s linear;
+  box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.8); }
   .beer-item-modal .ingredient-list .list {
     width: 33%;
     float: left; }
+  .beer-item-modal .close-modal-button {
+    background: transparent; }
+  .beer-item-modal .close-modal-button i {
+    font-size: 4.2rem;
+    color: #00245b;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    transition: all 0.2s ease-in; }
+    .beer-item-modal .close-modal-button i:hover {
+      color: #ffb300;
+      animation: spin 2s infinite; }
 
 .recipe-book-container {
   height: 100%;

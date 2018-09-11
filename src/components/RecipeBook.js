@@ -145,7 +145,7 @@ class RecipeBook extends Component {
             <main className="clearfix recipe-book-container wrapper">
                 <div className="recipe-book-header clearfix">
                     <Link to="/Finder">
-                        <button>Back to finder</button>
+                        <button>Back to Search</button>
                     </Link>
                     <h2>Your Recipes</h2>
                     <img src="/assets/beerbible_open.png" alt="open beer bible"></img>
@@ -176,7 +176,16 @@ class RecipeBook extends Component {
                             beerMethodMashTemp={this.state.beerMethodMashTemp}
                             beerMethodMashDuration={this.state.beerMethodMashDuration}
                             foodPairings={this.state.foodPairings}
-                            brewersTips={this.state.brewersTips} /> : <p>Scroll through your recipes in the box on the right. Click on a recipe to see the full list of ingredients and instructions. Keep your own notes in the notepad at the bottom of the page.</p>
+                            brewersTips={this.state.brewersTips} />
+                        :
+                        <section className="full-recipe">
+                            <h3>Choose a Recipe to view!</h3>
+
+                            <div className="ask-dave">
+                                <img src="/assets/dave.png" />
+                                <h4>Click on dave for tips on the beer you choose to brew!</h4>
+                            </div>
+                        </section>
                 }
                 <form action="" className="notes-box">
                     <h3 className="notes-header">Notes</h3>
