@@ -1,9 +1,9 @@
 @import 'partials/_setup.scss';
+@import 'partials/_typography.scss';
 @import 'partials/_landingPage.scss';
 @import 'partials/_finder.scss';
 @import 'partials/_recipeBook.scss';
-@import 'partials/_fullRecipe.scss';
-@import 'partials/_typography.scss';
+@import 'partials/fullRecipe';
 
 img {
     width: 100%;
@@ -12,9 +12,9 @@ img {
 body {
     background-color: #001a33;
 }
-// button {
-//     border: none;
-// }
+button {
+    border: none;
+}
 
 textarea {
     resize: none;

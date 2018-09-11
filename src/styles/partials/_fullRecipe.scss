@@ -1,35 +1,30 @@
-// MODAL
 
-.dave-wrapper {
+.full-recipe ul {
+    margin: 0;
+    padding: 0;
+    li {
+        padding: 5px 0;
+    }
+}
+
+.ask-dave {
     position: relative;
     img {
-        width: 40%;
-    }
-    h4 {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        text-align: left;
+        width: 50%;
     }
     .brewer-tips-modal {
-        // border: 1px solid red;
         display: none;
         background-image: url(/assets/speech-bubble.png);
         background-repeat: no-repeat;
         position: absolute;
-        width: 400px;
-        height: 350px;
-        top: -70px;
-        left: 325px;
+        width: 350px;
+        height: 305px;
+        top: -15%;
+        left: 60%;
         transform: translate(-50%, -50%);
-        h4 {
-            padding: 0 30px;
+        h4, p {
+            padding: 5px 10px 0 25px;
             margin: 0;
-            color: $dkblue;
-        }
-        p {
-            padding: 0 30px;
-            color: $dkblue;
         }
     }
 }

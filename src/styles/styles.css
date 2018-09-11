@@ -131,6 +131,61 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+html {
+  font-size: 62.5%; }
+
+h1 {
+  font-size: 35px;
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif; }
+
+h2 {
+  font-size: 30px;
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif; }
+
+h3 {
+  font-size: 25px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif; }
+
+h4 {
+  font-size: 20px;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif; }
+
+h5 {
+  font-size: 18px;
+  font-size: 1.8rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px; }
+
+ul, li {
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px; }
+
+p {
+  font-size: 18px;
+  font-size: 1.8rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px; }
+
+button {
+  font-size: 18px;
+  font-size: 1.8rem;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px; }
+
 html,
 body {
   margin: 0;
@@ -191,6 +246,9 @@ body {
     text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
     color: #146C80; } }
 
+.beer-bible {
+  width: 150px; }
+
 .search-results {
   position: relative;
   text-align: center;
@@ -199,10 +257,6 @@ body {
     width: 25%;
     float: left;
     padding: 6%; }
-
-.beerbible {
-  width: 150px;
-  margin: 15px; }
 
 .beer-item-modal {
   display: none;
@@ -217,163 +271,110 @@ body {
     float: left; }
 
 .recipe-book-container {
-  height: 100vh;
+  height: 100%;
   width: 100%; }
 
-.recipe-button {
-  border: 1px solid #00245b;
-  margin: 5px 5px 5px 5px;
-  padding: 10px; }
-
 .recipe-book-header {
-  background-image: url(/assets/header-wood.jpg);
   width: 100%;
   height: 150px;
-  margin-bottom: 10px;
-  border-radius: 7px; }
-  .recipe-book-header .finder {
+  background-image: url(/assets/header-wood.jpg);
+  border-radius: 10px;
+  margin-bottom: 10px; }
+  .recipe-book-header button {
     float: left;
-    margin-top: 50px; }
+    padding: 15px;
+    margin: 45px 0 0 15px;
+    border: 1px solid #00245b; }
   .recipe-book-header h2 {
     float: left;
-    margin: 50px 0 0 20px;
-    text-shadow: 1px 1px 3px white; }
-  .recipe-book-header .beerbible.open {
-    float: right; }
+    padding: 20px 0 0 20px;
+    text-shadow: 1px 1px 5px white; }
+  .recipe-book-header img {
+    float: right;
+    width: 180px;
+    padding: 1%; }
 
 .beers-list {
   float: right;
   width: calc(35% - 10px);
-  height: 30vh;
+  height: 35vh;
   overflow: auto;
   background-color: #00778a;
-  border-radius: 7px;
-  margin: 0 0 10px 10px;
-  box-shadow: 2px 2px 2px black; }
-  .beers-list .beer-box {
-    width: 80%;
-    height: 50px;
+  border-radius: 10px;
+  margin-left: 10px; }
+  .beers-list .beer-box-wrapper .beer-box {
     background-color: white;
-    float: left;
+    cursor: pointer;
     border: 1px solid #00245b;
-    margin: 5px;
-    padding: 10px;
-    cursor: pointer; }
-    .beers-list .beer-box h4 {
-      margin: 0; }
-  .beers-list .trash {
+    padding: 5px;
+    margin: 5px 0 5px 5px;
     float: left;
-    width: 12%;
-    height: 50px; }
+    width: 80%; }
+    .beers-list .beer-box-wrapper .beer-box h4 {
+      margin: 0;
+      padding: 0; }
+  .beers-list .beer-box-wrapper button {
+    background-color: white;
+    border: 1px solid #00245b;
+    padding: 9px;
+    margin: 5px 0 5px 7px;
+    float: left;
+    width: 10%; }
 
 .notes-box {
   background-color: #00778a;
   float: right;
   width: calc(35% - 10px);
-  height: 50vh;
-  padding: 0 25px;
-  margin-left: 10px;
-  border-radius: 7px;
-  box-shadow: 2px 2px 2px black; }
+  height: 45vh;
+  padding: 25px;
+  margin: 10px 0 10px 10px;
+  border-radius: 10px; }
   .notes-box #notes {
     width: 100%;
     height: 70%;
-    border: none;
-    border-radius: 7px; }
+    border: none; }
+  .notes-box h3 {
+    margin: 0;
+    padding: 0; }
+  .notes-box .save-note-button {
+    padding: 15px;
+    margin-top: 5px;
+    border: 1px solid #00245b; }
 
 .full-recipe {
   float: left;
   width: 65%;
-  height: 81vh;
   padding: 25px;
   background-color: #ebeae5;
-  border-radius: 7px;
-  box-shadow: 2px 2px 2px black; }
+  border-radius: 10px; }
 
-.dave-wrapper {
+.dave img {
+  width: 70%;
+  margin: 0 auto; }
+
+.full-recipe ul {
+  margin: 0;
+  padding: 0; }
+  .full-recipe ul li {
+    padding: 5px 0; }
+
+.ask-dave {
   position: relative; }
-  .dave-wrapper img {
-    width: 40%; }
-  .dave-wrapper h4 {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    text-align: left; }
-  .dave-wrapper .brewer-tips-modal {
+  .ask-dave img {
+    width: 50%; }
+  .ask-dave .brewer-tips-modal {
     display: none;
     background-image: url(/assets/speech-bubble.png);
     background-repeat: no-repeat;
     position: absolute;
-    width: 400px;
-    height: 350px;
-    top: -70px;
-    left: 325px;
+    width: 350px;
+    height: 305px;
+    top: -15%;
+    left: 60%;
     transform: translate(-50%, -50%); }
-    .dave-wrapper .brewer-tips-modal h4 {
-      padding: 0 30px;
-      margin: 0;
-      color: #00245b; }
-    .dave-wrapper .brewer-tips-modal p {
-      padding: 0 30px;
-      color: #00245b; }
-
-html {
-  font-size: 62.5%; }
-
-h1 {
-  font-size: 35px;
-  font-size: 3.5rem;
-  font-weight: 700;
-  font-family: "Oswald", sans-serif; }
-
-h2 {
-  font-size: 30px;
-  font-size: 3rem;
-  font-weight: 700;
-  font-family: "Oswald", sans-serif;
-  text-align: left; }
-
-h3 {
-  font-size: 25px;
-  font-size: 2.5rem;
-  font-weight: 700;
-  font-family: "Oswald", sans-serif;
-  text-align: center; }
-
-h4 {
-  font-size: 20px;
-  font-size: 2rem;
-  font-weight: 700;
-  font-family: "Oswald", sans-serif; }
-
-h5 {
-  font-size: 18px;
-  font-size: 1.8rem;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
-  letter-spacing: 1px; }
-
-ul, li {
-  font-size: 18px;
-  font-size: 1.8rem;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
-  letter-spacing: 1px;
-  padding: 10px 0; }
-
-p {
-  font-size: 18px;
-  font-size: 1.8rem;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
-  letter-spacing: 1px; }
-
-label, button {
-  font-size: 18px;
-  font-size: 1.8rem;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
-  letter-spacing: 1px; }
+    .ask-dave .brewer-tips-modal h4, .ask-dave .brewer-tips-modal p {
+      padding: 5px 10px 0 25px;
+      margin: 0; }
 
 img {
   width: 100%;
@@ -381,6 +382,9 @@ img {
 
 body {
   background-color: #001a33; }
+
+button {
+  border: none; }
 
 textarea {
   resize: none; }

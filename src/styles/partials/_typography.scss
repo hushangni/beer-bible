@@ -23,11 +23,9 @@ h1 {
 }
 h2 {
     @include title-styles (30);
-    text-align: left;
 }
 h3 {
     @include title-styles (25);
-    text-align: center;
 }
 h4 {
     @include title-styles (20);
@@ -36,12 +34,11 @@ h5 {
     @include paragraph-styles(18);
 }
 ul, li {
-    @include paragraph-styles (18);
-    padding: 10px 0;
+    @include paragraph-styles (16);
 }
 p {
     @include paragraph-styles (18);
 }
-label, button {
-     @include paragraph-styles (18);   
+button {
+    @include paragraph-styles (18);
 }

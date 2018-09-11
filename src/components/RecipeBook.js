@@ -3,26 +3,31 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import firebase from "firebase";
 import FullRecipe from "./FullRecipe";
 
+
+// SOLUTION FOR ISSUE WITH HOPS
+// turn each hops opbject into a string and put the string of every attribute of the hops object into an array
+// then pass that array into the div
+
 class RecipeBook extends Component {
     constructor() {
         super();
         this.state = {
             beersList: [],
             displayFullRecipe: false,
-            beerToDisplay: null
+            beerToDisplay: null,
+            beersLeft: 0
         }
     }
     componentDidMount() {
         firebase.auth().onAuthStateChanged((user) => {
             firebase.database().ref().child(`users/${user.uid}/beerRecipes`).on('value', (snapshot) => {
                 if (snapshot.val()) {
-                    console.log(snapshot.val());
                     this.setBeers(snapshot.val())
-
                 }
             })
         })
     }
+
 
     setBeers = (snapshot) => {
         const beersArray = Object.entries(snapshot)
@@ -40,26 +45,35 @@ class RecipeBook extends Component {
                 })
             })
         this.setState({
-            beersList: beersArray
+            beersList: beersArray,
+            beersLeft: beersArray.length
         })
     }
 
     displayFullRecipe = (beer) => {
         if (beer == "nope") {
+
             this.setState({
                 beerName: null
             }, () => {
-                return;
+
             })
+            return;
         }
         firebase.auth().onAuthStateChanged((user) => {
             firebase.database().ref().child(`users/${user.uid}/beerRecipes`).once('value', (snapshot) => {
+
                 if (snapshot.val()) {
                     const hopsArr = beer.ingredients.hops.map((hop) => {
-                        return `add ${hop.name} hops, ${hop.amount.value} ${hop.amount.unit} at the ${hop.add}`;
+                        if(hop.add !== "dry hop"){
+                            return `Add ${hop.amount.value} ${hop.amount.unit} of ${hop.name} hops, at the ${hop.add} of the boil. `;
+                        }
+                        else{
+                            return `Wait and add ${hop.amount.value} ${hop.amount.unit} of ${hop.name} dry hops after wort has been cooled.`
+                        }
                     });
                     const maltArr = beer.ingredients.malt.map((malt) => {
-                        return `add ${malt.name} malt, ${malt.amount.value} ${malt.amount.unit}`;
+                        return `${malt.amount.value} ${malt.amount.unit} of ${malt.name} malts, `;
                     })
                     this.setBeers(snapshot.val());
                     beer.ingredients.hops
@@ -72,7 +86,7 @@ class RecipeBook extends Component {
                         beerYeast: beer.ingredients.yeast,
                         beerVolume: beer.volume,
                         beerMethodMashTemp: beer.methodMashTemp,
-                        beerMethodMashDuration: beer.methoMashDuration,
+                        beerMethodMashDuration: beer.methodMashDuration,
                         foodPairings: beer.foodPairings,
                         brewersTips: beer.brewersTips
                     })
@@ -113,8 +127,15 @@ class RecipeBook extends Component {
     }
 
     deleteRecipe = (beername) => {
-        console.log(this.state.beerName, "deleteing this beer");
-        this.displayFullRecipe("nope");
+        if (beername == this.state.beerName) {
+            this.displayFullRecipe("nope");
+        }
+        if (this.state.beersLeft === 1) {
+            this.setState({
+                beersLeft: 0,
+                beersList: []
+            })
+        }
         const beerDbRef = firebase.database().ref().child(`users/${firebase.auth().currentUser.uid}/beerRecipes/${beername}`);
         beerDbRef.remove();
     }
@@ -124,23 +145,23 @@ class RecipeBook extends Component {
             <main className="clearfix recipe-book-container wrapper">
                 <div className="recipe-book-header clearfix">
                     <Link to="/Finder">
-                        <button className="recipe-button finder">Back to finder</button>
+                        <button>Back to finder</button>
                     </Link>
                     <h2>Your Recipes</h2>
-                    <img className="beerbible open" src="/assets/beerbible-open.png" alt="beer bible"></img>
+                    <img src="/assets/beerbible_open.png" alt="open beer bible"></img>
                 </div>
 
-                <aside className="beers-list clearfix">
+                <aside className="beers-list">
                     {this.state.beersList.map((beer) => {
                         return (
                             <div className="beer-box-wrapper clearfix">
-                                
                                 <div onClick={() => { this.displayFullRecipe(beer) }} className="beer-box" key={beer.key}>
                                     <h4>{beer.name}</h4>
                                     {/* <p>{beer.brewersTips}</p> */}
                                 </div>
-                                <button className="recipe-button trash" onClick={() => this.deleteRecipe(beer.name)} id={beer.key}><i class="fas fa-trash-alt"></i></button>
+                                <button onClick={() => this.deleteRecipe(beer.name)} id={beer.key}><i class="fas fa-trash-alt"></i></button>
                             </div>
+
                         )
                     })}
                 </aside>
@@ -155,14 +176,13 @@ class RecipeBook extends Component {
                             beerMethodMashTemp={this.state.beerMethodMashTemp}
                             beerMethodMashDuration={this.state.beerMethodMashDuration}
                             foodPairings={this.state.foodPairings}
-                            brewersTips={this.state.brewersTips} /> : <p>Scroll through your list of saved recipes on the right, then click to choose a recipe and see the full instructions and ingredients here on the left. Use the notepad at the bottom for recording your thoughts and findings for each of your saved recipes.</p>
-                            
+                            brewersTips={this.state.brewersTips} /> : <p>Scroll through your recipes in the box on the right. Click on a recipe to see the full list of ingredients and instructions. Keep your own notes in the notepad at the bottom of the page.</p>
                 }
                 <form action="" className="notes-box">
                     <h3 className="notes-header">Notes</h3>
                     <textarea type="text" name="notes" id="notes" placeholder="Notes from your brewing experience for this beer here..." onChange={this.handleChange} />
-                    <label htmlFor="notes" className="visually-hidden">Enter the notes for your beer brewing experience here</label>
-                    <input type="submit" value="Save Note" className="save-note-button button recipe-button" onClick={this.handleSave} />
+                    <label htmlFor="notes" className="visually-hidden">enter the notes for your beer brewing experience here</label>
+                    <input type="submit" value="Save Note" className="save-note-button button" onClick={this.handleSave} />
                 </form>
             </main>
         )
