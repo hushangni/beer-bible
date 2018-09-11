@@ -18,7 +18,7 @@ $basefont2: 'Oswald', sans-serif;
 
 @font-face {
 font-family: 'bruxregular';
-src: 
+src:
 url('/assets/fonts/webfontkit-20180911-111510/brux-regular-webfont.woff2') format('woff2'),
 url('/assets/fonts/webfontkit-20180911-111510/brux-regular-webfont.woff') format('woff');
 font-weight: normal;
@@ -32,7 +32,7 @@ h1 {
     @include title-styles (35);
 }
 h2 {
-    @include title-styles (25);
+    @include title-styles (28);
 }
 
 h3 {

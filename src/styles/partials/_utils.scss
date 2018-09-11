@@ -49,3 +49,10 @@
     75% {transform: rotate(-5deg);}
     100% {transform: rotate(0deg);}
 }
+
+@keyframes glowing {
+    0% { -webkit-filter: drop-shadow( -10px 10px -20px $yellow); }
+    40% { -webkit-filter: drop-shadow( 10px -10px 70px $yellow); }
+    60% { -webkit-filter: drop-shadow( -10px 10px 70px $yellow); }
+    100% { -webkit-filter: drop-shadow( 10px -10px -20px $yellow); }
+}
