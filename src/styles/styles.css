@@ -131,15 +131,12 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
-<<<<<<< HEAD
 @font-face {
   font-family: 'humgerregular';
   src: url("/assets/fonts/webfontkit-20180910-174600/humger-webfont.woff2") format("woff2"), url("/assets/fonts/webfontkit-20180910-174600/humger-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal; }
 
-=======
->>>>>>> 1798143b92d1d408f7786b0fac4ecfd2f41e6383
 html {
   font-size: 62.5%; }
 
@@ -152,14 +149,8 @@ h1 {
 h2 {
   font-size: 30px;
   font-size: 3rem;
-<<<<<<< HEAD
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
-  letter-spacing: 1px; }
-=======
   font-weight: 700;
   font-family: "Oswald", sans-serif; }
->>>>>>> 1798143b92d1d408f7786b0fac4ecfd2f41e6383
 
 h3 {
   font-size: 25px;
@@ -181,8 +172,6 @@ h5 {
   letter-spacing: 1px; }
 
 ul, li {
-<<<<<<< HEAD
-=======
   font-size: 16px;
   font-size: 1.6rem;
   font-family: "Source Sans Pro", sans-serif;
@@ -190,18 +179,13 @@ ul, li {
   letter-spacing: 1px; }
 
 p {
->>>>>>> 1798143b92d1d408f7786b0fac4ecfd2f41e6383
   font-size: 18px;
   font-size: 1.8rem;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
   letter-spacing: 1px; }
 
-<<<<<<< HEAD
-p {
-=======
 button {
->>>>>>> 1798143b92d1d408f7786b0fac4ecfd2f41e6383
   font-size: 18px;
   font-size: 1.8rem;
   font-family: "Source Sans Pro", sans-serif;
@@ -274,7 +258,6 @@ body {
     text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
     color: #146C80; } }
 
-<<<<<<< HEAD
 .auth {
   clear: both; }
 
@@ -295,10 +278,9 @@ body {
   .signUp:hover,
   .logIn:hover {
     color: #00778a; }
-=======
+
 .beer-bible {
   width: 150px; }
->>>>>>> 1798143b92d1d408f7786b0fac4ecfd2f41e6383
 
 .search-results {
   position: relative;
