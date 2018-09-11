@@ -147,6 +147,7 @@ h1 {
   font-family: "Oswald", sans-serif; }
 
 h2 {
+
   font-size: 25px;
   font-size: 2.5rem;
   font-weight: 700;
@@ -339,6 +340,10 @@ body {
   .logIn:hover {
     color: #00778a; }
 
+
+.beer-bible {
+  width: 150px; }
+
 .finder-container {
   width: 90%;
   height: 150px;
@@ -509,6 +514,49 @@ body {
 .dave img {
   width: 70%;
   margin: 0 auto; }
+
+.food-module {
+  margin: 0;
+  padding: 0; }
+  .food-module button {
+    color: black;
+    padding: 10px 15px; }
+  .food-module .foodPairingRecipes .food-item {
+    display: float;
+    float: left;
+    width: 30%;
+    margin-right: 5%;
+    position: relative;
+    background: #00778A;
+    opacity: 1;
+    transition: opacity 0.6s;
+    padding: 0;
+    border: 8px solid #00778A;
+    border-radius: 10px; }
+  .food-module .foodPairingRecipes .food-item:hover {
+    opacity: 0.6; }
+  .food-module .foodPairingRecipes .food-item:last-of-type {
+    margin-right: 0; }
+  .food-module .foodPairingRecipes .food-item h4 {
+    height: 60px;
+    position: absolute;
+    text-align: center;
+    font-size: 20px;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.6s; }
+  .food-module .foodPairingRecipes .food-item:hover > h4 {
+    opacity: 1; }
+  .food-module .foodPairingRecipes .food-item a {
+    text-decoration: none;
+    color: white; }
+  .food-module .foodPairingRecipes img {
+    width: 100%; }
+
+.hideButton {
+  display: none; }
 
 .full-recipe ul {
   margin: 0;
