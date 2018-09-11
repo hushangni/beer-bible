@@ -4,6 +4,35 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
+// breakpoint mixins
+@mixin breakpoint($point){
+    // 
+    @if $point == desktop{
+        @media (max-width: 1280px) { @content ; }
+    }
+    @else if $point == laptop{
+        @media (max-width: 1024px) { @content ; }
+    }
+        // 
+        @else if $point == bigPhablet{
+        @media (max-width: 768px) { @content ; }
+    }
+      @else if $point == phablet{
+          @media (max-width: 550px)  { @content ; }
+      }
+    @else if $point == mobileonly{
+        @media (max-width: 375px)  { @content ; }
+
+    }
+    @else if $point == smallmobileonly{
+        @media (max-width: 320px)  { @content ; }
+    }
+}
+
+
 $dkblue: #00245b;
-$ltblue: #00778a;
+
 $yellow: #ffb300;
+$clr1: rgb(177,7,7);
+$clr2: rgb(38,149,255);
+$ltblue: #00778a;
