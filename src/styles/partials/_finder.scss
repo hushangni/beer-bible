@@ -1,29 +1,119 @@
+.finder {
+    height: 100%;
+    background-repeat: repeat-y;
+}
+
 .finder-container {
-    width: 90%;
-    height: 150px;
-    margin: 0 auto;
-    background-image: url(/assets/header-wood.jpg);
-    border-radius: 10px;
+    width: 100%;
+    height: 120px;
+    padding: 20px;
+    margin: 0 auto 30px;
+    background-color: #fff;
+    position: fixed;
+    z-index: 2;
     // margin-bottom: 10px;
     .auth {
         float: left;
+
         .log-out {
             padding: 15px;
-            margin: 45px 0 0 15px;
-            border: 1px solid $dkblue;
+            border: 3px solid $yellow;
+            transition: 0.25s;
+            font-size: 2.5rem;
+            margin-top: 5px;
+            margin-left: 30px;
+
+            &:hover,
+            &:focus {
+                box-shadow: inset 0 -3.25em 0 0 $yellow;
+                border-color: $yellow;
+                color: #fff;
+            }
+
+        }
+        .signout-symbol {
+            display: none;
         }
     }
+
     h2 {
         float: left;
-        padding: 20px 0 0 20px;
+        margin-left: 50px;
+        margin-top: 15px;
         text-shadow: 1px 1px 5px white;
     }
     .book {
         float: right;
+        margin-right: 40px;
+        background: transparent;
         .beer-bible {
             float: left;
-            width: 150px;
-            padding: 3%;
+            width: 90px;
+        }
+
+        .glow {
+            animation: glowing 0.7s;
+            filter: drop-shadow(2px 2px 0 rgba(255, 179, 0, 0.2))
+		    drop-shadow(-2px 2px 0 rgba(255, 179, 0, 0.3) )
+		    drop-shadow(2px -2px 0 rgba(255, 179, 0, 0.3))
+       		drop-shadow(-2px -2px 0 rgba(255, 179, 0, 0.3));
+        }
+    }
+}
+
+.search-form {
+    padding-top: 140px;
+    font-family: "neontubes";
+    width: 100%;
+    font-size: 2vw;
+    color: scale-color(rgba(250, 250, 250 ,1), $lightness: 80%);
+    text-transform: uppercase;
+    text-shadow:
+        0 0 0 transparent,
+        0 0 10px #fff,
+        0 0 20px rgba(250, 250, 250 ,.5),
+        0 0 40px rgba(250, 250, 250 ,1),
+        0 0 100px rgba(250, 250, 250 ,1),
+        0 0 200px rgba(250, 250, 250 ,1),
+        0 0 300px rgba(250, 250, 250 ,1),
+        0 0 500px rgba(250, 250, 250 ,1);
+
+    button {
+        font-size: 3.6rem;
+        font-family: "neontubes";
+        margin: 0 auto 40px;
+        display: block;
+        border: none;
+        background: transparent;
+        color: scale-color(rgba(250, 250, 250 ,1), $lightness: 80%);
+        text-transform: uppercase;
+        text-shadow:
+            0 0 0 transparent,
+            0 0 10px #fff,
+            0 0 20px rgba(38,149,255 ,.5),
+            0 0 40px rgba(38,149,255 ,1),
+            0 0 100px rgba(38,149,255 ,1),
+            0 0 200px rgba(38,149,255,1),
+            0 0 300px rgba(38,149,255,1),
+            0 0 500px rgba(38,149,255,1);
+
+    }
+
+    div {
+        float: left;
+        text-align: center;
+        width: calc(100% / 3);
+        margin-bottom: 10px;
+
+        label {
+            font-size: 2.9rem;
+            margin-right: 10px;
+        }
+
+        input {
+            font-size: 2rem;
+            width: 95%;
+            max-width: 400px;
         }
     }
 }
@@ -38,14 +128,17 @@
         margin: 10px;
         float: left;
         padding: 3% 2%;
-        height: 500px;
-        border: 3px solid $yellow;
-        background-color: white;
-        transition: all 0.3s ease-in;
+        height: 520px;
+        // border: 3px solid $yellow;
+        background-color: rgba(255, 255, 255, 0.2);
+        transition: all 0.1s ease-in;
 
         .beer-item-name {
-            line-height: 2.7rem;
-            transition: all 0.3s ease-in;
+            line-height: 2.9rem;
+            transition: all 0.1s ease-in;
+            color: white;
+            letter-spacing: 0.3rem;
+            font-weight: 400;
         }
 
         img {
@@ -55,20 +148,47 @@
         }
 
         &:hover {
-            box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+            box-shadow:
+                0 0 0.5rem #fff,
+                inset 0 0 0.5rem #fff,
+                0 0 2rem rgb(38,149,255),
+                inset 0 0 2rem rgb(38,149,255),
+                0 0 4rem rgb(38,149,255),
+                inset 0 0 4rem rgb(38,149,255);
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         &:hover .beer-item-name {
-            color: $yellow;
+               text-shadow:
+                -0.2rem -0.2rem 1rem rgb(38,149,255),
+                0.2rem 0.2rem 1rem rgb(38,149,255),
+                0 0 2rem rgb(38,149,255),
+                0 0 4rem rgb(38,149,255),
+                0 0 6rem rgb(38,149,255),
+                0 0 8rem rgb(38,149,255),
+                0 0 10rem rgb(38,149,255);
+        }
+
+        .info-button,
+        .add-button {
+            background: transparent;
         }
 
         .info-button i,
         .add-button i {
             font-size: 4.2rem;
             transition: all 0.2s ease-in;
+            color: white;
 
             &:hover{
-                color: $yellow;
+                text-shadow:
+                -0.2rem -0.2rem 1rem rgb(38,149,255),
+                0.2rem 0.2rem 1rem rgb(38,149,255),
+                0 0 2rem rgb(38,149,255),
+                0 0 4rem rgb(38,149,255),
+                0 0 6rem rgb(38,149,255),
+                0 0 8rem rgb(38,149,255),
+                0 0 10rem rgb(38,149,255);
             }
         }
 
@@ -118,6 +238,147 @@
         &:hover{
             color: $yellow;
             animation: spin 2s infinite;
+        }
+    }
+}
+
+
+@media (max-width: 850px) {
+    .search-results {
+        .beer-item {
+            width: calc((100%/3) - 20px);
+        }
+    }
+}
+
+@media(max-width: 620px) {
+    .finder-container {
+        h2 {
+            display: none;
+        }
+    }
+
+    .search-results {
+        .beer-item {
+            width: calc((100%/3) - 20px);
+            height: 350px;
+            .beer-item-name {
+                line-height: 2rem;
+                font-size: 1.8rem;
+            }
+
+            img {
+                width: auto;
+                height: 200px;
+                margin: 0 auto;
+            }
+
+            .info-button i,
+            .add-button i {
+                font-size: 3.2rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .finder-container {
+        height: 80px;
+        .auth {
+            .log-out {
+                display: none;
+            }
+            .signout-symbol {
+                display: inline-block;
+                font-size: 3.8rem;
+                color: $dkblue;
+                margin-left: 10px;
+            }
+        }
+        .book {
+            position: absolute;
+            right: 0;
+            top: 8px;
+            .beer-bible {
+                width: 60px;
+            }
+        }
+    }
+    .search-results {
+        .beer-item {
+            width: calc((100%/2) - 20px);
+            height: 280px;
+            .beer-item-name {
+                line-height: 2rem;
+                font-size: 1.8rem;
+            }
+
+            img {
+                width: auto;
+                height: 150px;
+                margin: 0 auto;
+            }
+
+            .info-button i,
+            .add-button i {
+                font-size: 3.6rem;
+            }
+        }
+    }
+
+    .search-form {
+
+        button {
+            font-size: 3rem;
+            font-family: "neontubes";
+            margin: 0 auto 15px;
+            display: block;
+            border: none;
+            background: transparent;
+            color: scale-color(rgba(250, 250, 250 ,1), $lightness: 80%);
+            text-transform: uppercase;
+            text-shadow:
+                0 0 0 transparent,
+                0 0 10px #fff,
+                0 0 20px rgba(38,149,255 ,.5),
+                0 0 40px rgba(38,149,255 ,1),
+                0 0 100px rgba(38,149,255 ,1),
+                0 0 200px rgba(38,149,255,1),
+                0 0 300px rgba(38,149,255,1),
+                0 0 500px rgba(38,149,255,1);
+
+        }
+
+        div {
+            float: left;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 10px;
+
+            label {
+                font-size: 2.6rem;
+                margin: 0;
+                margin-right: 5px;
+            }
+
+            input {
+                font-size: 1.8rem;
+                width: 85%;
+                max-width: 400px;
+            }
+        }
+    }
+
+    .beer-item-modal {
+        .ingredient-list {
+            .list {
+                display: none;
+            }
+        }
+
+        p {
+            height: 60vh;
+            overflow-y: auto;
         }
     }
 }

@@ -1,24 +1,36 @@
-
+.full-recipe h3{
+    @include breakpoint(desktop){
+            margin:0 10%;
+        }
+}
 .full-recipe ul {
     margin: 0;
     padding: 0;
     li {
         padding: 5px 0;
     }
+    @include breakpoint(desktop){
+            margin:0 10%;
+        }
 }
 
 .ask-dave {
     position: relative;
     img {
         width: 50%;
+        min-width:190px;
+        @include breakpoint(desktop){
+            width:30%;
+            margin:0 10%;
+        }
     }
     .brewer-tips-modal {
         display: none;
         background-image: url(/assets/speech-bubble.png);
         background-repeat: no-repeat;
         position: absolute;
-        width: 350px;
-        height: 305px;
+        width: 320px;
+        height: 280px;
         top: -15%;
         left: 60%;
         transform: translate(-50%, -50%);
