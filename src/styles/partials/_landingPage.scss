@@ -13,89 +13,188 @@ body {
 }
 
 @font-face {
-  font-family: neon;
-  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+    font-family: 'neontubes';
+    src: url('https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot');
+    src: url('https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff2') format('woff2'),
+         url('https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff') format('woff'),
+         url('https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.heading {
-  display: table-cell;
+$clr1: rgb(177,7,7);
+$clr2: rgb(38,149,255);
+
+.logoBig {
+  display: block;
+  margin: 0 auto;
+  font-family: "neontubes";
+  font-size: 10vw;
   text-align: center;
-  vertical-align: middle;
-  float: right;
-  margin-top: 60px;
-  margin-right: 70px;
-}
+  white-space: nowrap;
 
-.neon {
-  font-family: neon;
-  color: #FB4264;
-  font-size: 8vw;
-  line-height: 9vw;
-  text-shadow: 0 0 3vw #F40A35;
-}
-
-.flux {
-  font-family: neon;
-  color: #426DFB;
-  font-size: 8vw;
-  line-height: 9vw;
-  text-shadow: 0 0 3vw #2356FF;
-}
-
-.neon {
-  animation: neon 1s ease infinite;
-  -moz-animation: neon 1s ease infinite;
-  -webkit-animation: neon 1s ease infinite;
-}
-
-@keyframes neon {
-  0%,
-  100% {
-    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
-    color: #FED128;
+  .beer{
+    position: relative;
   }
-  50% {
-    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
-    color: #806914;
+
+  .bible {
+    position: absolute;
+    width: 100%;
+    top: 22%;
   }
-}
-
-.flux {
-  animation: flux 2s linear infinite;
-  -moz-animation: flux 2s linear infinite;
-  -webkit-animation: flux 2s linear infinite;
-  -o-animation: flux 2s linear infinite;
-}
-
-@keyframes flux {
-  0%,
-  100% {
-    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
-    color: #28D7FE;
-  }
-  50% {
-    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
-    color: #146C80;
-  }
-}
-
-.auth {
-  clear: both;
-}
-
-.signUp, 
-.logIn {
-  @include title-styles(80);
-  font-family: 'humgerregular';
-  text-transform: uppercase;
-  color: grey;
-  text-decoration: none;
-  letter-spacing: 4px;
-  float: left;
-  margin: 0 15px;
-  transition: 1s all ease;
-    &:hover{
-      color: $ltblue;
-    }
   
+  .beerBible {
+    transform: rotate(-1deg);
+    color: scale-color($clr1, $lightness: 85%);
+    text-shadow:
+      0 0 0 transparent,
+      0 0 10px $clr1,
+      0 0 20px rgba($clr1,.5),
+      0 0 40px rgba($clr1,1),
+      0 0 100px rgba($clr1,1),
+      0 0 200px rgba($clr1,1),
+      0 0 300px rgba($clr1,1),
+      0 0 500px rgba($clr1,1),
+      0 0 1000px rgba($clr1,1);
+    animation: blink 4s infinite alternate;
+  }
 }
+
+.logoSmall {
+  display: block;
+  margin: 0 auto;
+  margin-top: 150px;
+  width: 35%;
+  font-family: "neontubes";
+  font-size: 10vw;
+  text-align: center;
+  white-space: nowrap;
+  
+  .signUp,
+  .logIn {
+    display: block;
+    float: left;
+    margin: 0 15px;
+    transform: translateZ(0) translate3D(0,0,0);
+    backface-visibility: hidden;
+    will-change: opacity;
+    transform: rotate(1deg);
+    font-family: "neontubes";
+    font-size: 3vw;
+    text-decoration: none;
+    color: scale-color($clr2, $lightness: 80%);
+    text-shadow:
+      0 0 0 transparent,
+      0 0 10px $clr2,
+      0 0 20px rgba($clr2,.5),
+      0 0 40px rgba($clr2,1),
+      0 0 100px rgba($clr2,1),
+      0 0 200px rgba($clr2,1),
+      0 0 300px rgba($clr2,1),
+      0 0 500px rgba($clr2,1);
+    animation: buzz 0.01s infinite alternate;
+  }
+}
+
+@keyframes buzz {
+  70% { opacity: 0.80; }
+}
+@keyframes blink {
+  40% { opacity: 1; }
+  42% { opacity: 0.8; }
+  43% { opacity: 1; }
+  45% { opacity: 0.2; }
+  46% { opacity: 1; }
+}
+
+@media screen and (min-width: 1000px) {
+  .logo {
+    width: 400px;
+    font-size: 150px;
+  }
+  .logo .signUp .logIn { font-size: 103px; }
+}
+
+
+// @font-face {
+//   font-family: neon;
+//   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+// }
+
+// .heading {
+//   text-align: center;
+//   vertical-align: middle;
+//   margin-top: 100px;
+// }
+
+// .neon {
+//   font-family: neon;
+//   color: #FB4264;
+//   font-size: 10.5vw;
+//   line-height: 10vw;
+//   text-shadow: 0 0 3vw #F40A35;
+// }
+
+// .flux {
+//   font-family: neon;
+//   color: #426DFB;
+//   font-size: 10.5vw;
+//   line-height: 10vw;
+//   text-shadow: 0 0 3vw #2356FF;
+
+// }
+
+// .neon {
+//   animation: neon 1s ease infinite;
+//   -moz-animation: neon 1s ease infinite;
+//   -webkit-animation: neon 1s ease infinite;
+// }
+
+// @keyframes neon {
+//   0%,
+//   100% {
+//     text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+//     color: #FED128;
+//   }
+//   50% {
+//     text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+//     color: #806914;
+//   }
+// }
+
+// .flux {
+//   animation: flux 2s linear infinite;
+//   -moz-animation: flux 2s linear infinite;
+//   -webkit-animation: flux 2s linear infinite;
+//   -o-animation: flux 2s linear infinite;
+// }
+
+// @keyframes flux {
+//   0%,
+//   100% {
+//     text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+//     color: #28D7FE;
+//   }
+//   50% {
+//     text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+//     color: #146C80;
+//   }
+// }
+
+// .auth {
+//   clear: both;
+// }
+
+// .signUp, 
+// .logIn {
+//   @include title-styles(80);
+//   font-family: 'bruxregular';
+//   text-transform: uppercase;
+//   color: rgba(250,250,250,0.8);
+//   text-decoration: none;
+//   letter-spacing: 15px;
+//   float: left;
+//   margin: 0 15px;
+//   transition: 1s all ease;
+// }
