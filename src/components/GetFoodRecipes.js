@@ -28,7 +28,6 @@ export default class GetFoodRecipes extends Component{
                 }
             })
             .then((res) => {
-                console.log(res)
 
                 if (res.data.matches[0]) {
                     const id=res.data.matches[0].id
