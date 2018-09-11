@@ -143,16 +143,18 @@ class RecipeBook extends Component {
     render() {
         return (
             <main className="clearfix recipe-book-container wrapper">
-                <div className="book">
+                <div className="recipe-book-header clearfix">
                     <Link to="/Finder">
                         <button>Back to finder</button>
                     </Link>
+                    <h2>Your Recipes</h2>
+                    <img src="/assets/beerbible_open.png" alt="open beer bible"></img>
                 </div>
 
                 <aside className="beers-list">
                     {this.state.beersList.map((beer) => {
                         return (
-                            <div>
+                            <div className="beer-box-wrapper clearfix">
                                 <div onClick={() => { this.displayFullRecipe(beer) }} className="beer-box" key={beer.key}>
                                     <h4>{beer.name}</h4>
                                     {/* <p>{beer.brewersTips}</p> */}
@@ -174,13 +176,13 @@ class RecipeBook extends Component {
                             beerMethodMashTemp={this.state.beerMethodMashTemp}
                             beerMethodMashDuration={this.state.beerMethodMashDuration}
                             foodPairings={this.state.foodPairings}
-                            brewersTips={this.state.brewersTips} /> : <p>NOTHING TO HSEE HERE SORRY</p>
+                            brewersTips={this.state.brewersTips} /> : <p>Scroll through your recipes in the box on the right. Click on a recipe to see the full list of ingredients and instructions. Keep your own notes in the notepad at the bottom of the page.</p>
                 }
                 <form action="" className="notes-box">
                     <h3 className="notes-header">Notes</h3>
                     <textarea type="text" name="notes" id="notes" placeholder="Notes from your brewing experience for this beer here..." onChange={this.handleChange} />
                     <label htmlFor="notes" className="visually-hidden">enter the notes for your beer brewing experience here</label>
-                    <input type="submit" value="save note" className="save-note-button button" onClick={this.handleSave} />
+                    <input type="submit" value="Save Note" className="save-note-button button" onClick={this.handleSave} />
                 </form>
             </main>
         )

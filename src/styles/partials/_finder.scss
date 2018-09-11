@@ -1,17 +1,16 @@
-
+.beer-bible {
+    width: 150px;
+}
 
 .search-results {
     position: relative;
     text-align: center;
     height: 100%;
-
     .beer-item {
         width: 25%;
         float: left;
         padding: 6%;
     }
-
-
 }
 
 .beer-item-modal {
@@ -22,9 +21,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     .ingredient-list {
-
         .list {
             width: 33%;
             float: left;
