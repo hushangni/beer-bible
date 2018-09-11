@@ -147,7 +147,6 @@ h1 {
   font-family: "Oswald", sans-serif; }
 
 h2 {
-
   font-size: 25px;
   font-size: 2.5rem;
   font-weight: 700;
@@ -340,10 +339,6 @@ body {
   .logIn:hover {
     color: #00778a; }
 
-
-.beer-bible {
-  width: 150px; }
-
 .finder-container {
   width: 90%;
   height: 150px;
@@ -534,7 +529,7 @@ body {
     border: 8px solid #00778A;
     border-radius: 10px; }
   .food-module .foodPairingRecipes .food-item:hover {
-    opacity: 0.6; }
+    opacity: 0.9; }
   .food-module .foodPairingRecipes .food-item:last-of-type {
     margin-right: 0; }
   .food-module .foodPairingRecipes .food-item h4 {
