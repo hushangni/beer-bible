@@ -147,8 +147,8 @@ h1 {
   font-family: "Oswald", sans-serif; }
 
 h2 {
-  font-size: 25px;
-  font-size: 2.5rem;
+  font-size: 28px;
+  font-size: 2.8rem;
   font-weight: 700;
   font-family: "Oswald", sans-serif; }
 
@@ -252,6 +252,16 @@ button {
   100% {
     transform: rotate(0deg); } }
 
+@keyframes glowing {
+  0% {
+    -webkit-filter: drop-shadow(-10px 10px -20px #ffb300); }
+  40% {
+    -webkit-filter: drop-shadow(10px -10px 70px #ffb300); }
+  60% {
+    -webkit-filter: drop-shadow(-10px 10px 70px #ffb300); }
+  100% {
+    -webkit-filter: drop-shadow(10px -10px -20px #ffb300); } }
+
 html,
 body {
   margin: 0;
@@ -259,7 +269,13 @@ body {
   width: 100%;
   height: 100%;
   display: table;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/assets/brick-wall.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/assets/brick-wall.jpg); }
+
+header {
+  height: 100vh;
   background-size: cover;
   background-repeat: no-repeat; }
 
@@ -337,28 +353,79 @@ body {
   .logo .signUp .logIn {
     font-size: 103px; } }
 
+.finder {
+  height: 100%;
+  background-repeat: repeat-y; }
+
 .finder-container {
-  width: 90%;
-  height: 150px;
-  margin: 0 auto;
-  background-image: url(/assets/header-wood.jpg);
-  border-radius: 10px; }
+  width: 100%;
+  height: 120px;
+  padding: 20px;
+  margin: 0 auto 30px;
+  background-color: #fff;
+  position: fixed;
+  z-index: 2; }
   .finder-container .auth {
     float: left; }
     .finder-container .auth .log-out {
       padding: 15px;
-      margin: 45px 0 0 15px;
-      border: 1px solid #00245b; }
+      border: 3px solid #ffb300;
+      transition: 0.25s;
+      font-size: 2.5rem;
+      margin-top: 5px;
+      margin-left: 30px; }
+      .finder-container .auth .log-out:hover, .finder-container .auth .log-out:focus {
+        box-shadow: inset 0 -3.25em 0 0 #ffb300;
+        border-color: #ffb300;
+        color: #fff; }
+    .finder-container .auth .signout-symbol {
+      display: none; }
   .finder-container h2 {
     float: left;
-    padding: 20px 0 0 20px;
+    margin-left: 50px;
+    margin-top: 15px;
     text-shadow: 1px 1px 5px white; }
   .finder-container .book {
-    float: right; }
+    float: right;
+    margin-right: 40px;
+    background: transparent; }
     .finder-container .book .beer-bible {
       float: left;
-      width: 150px;
-      padding: 3%; }
+      width: 90px; }
+    .finder-container .book .glow {
+      animation: glowing 0.7s;
+      filter: drop-shadow(2px 2px 0 rgba(255, 179, 0, 0.2)) drop-shadow(-2px 2px 0 rgba(255, 179, 0, 0.3)) drop-shadow(2px -2px 0 rgba(255, 179, 0, 0.3)) drop-shadow(-2px -2px 0 rgba(255, 179, 0, 0.3)); }
+
+.search-form {
+  padding-top: 140px;
+  font-family: "neontubes";
+  width: 100%;
+  font-size: 2vw;
+  color: #fefefe;
+  text-transform: uppercase;
+  text-shadow: 0 0 0 transparent, 0 0 10px #fff, 0 0 20px rgba(250, 250, 250, 0.5), 0 0 40px #fafafa, 0 0 100px #fafafa, 0 0 200px #fafafa, 0 0 300px #fafafa, 0 0 500px #fafafa; }
+  .search-form button {
+    font-size: 3.6rem;
+    font-family: "neontubes";
+    margin: 0 auto 40px;
+    display: block;
+    border: none;
+    background: transparent;
+    color: #fefefe;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 transparent, 0 0 10px #fff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff, 0 0 300px #2695ff, 0 0 500px #2695ff; }
+  .search-form div {
+    float: left;
+    text-align: center;
+    width: calc(100% / 3);
+    margin-bottom: 10px; }
+    .search-form div label {
+      font-size: 2.9rem;
+      margin-right: 10px; }
+    .search-form div input {
+      font-size: 2rem;
+      width: 95%;
+      max-width: 400px; }
 
 .search-results {
   position: relative;
@@ -369,28 +436,35 @@ body {
     margin: 10px;
     float: left;
     padding: 3% 2%;
-    height: 500px;
-    border: 3px solid #ffb300;
-    background-color: white;
-    transition: all 0.3s ease-in; }
+    height: 520px;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.1s ease-in; }
     .search-results .beer-item .beer-item-name {
-      line-height: 2.7rem;
-      transition: all 0.3s ease-in; }
+      line-height: 2.9rem;
+      transition: all 0.1s ease-in;
+      color: white;
+      letter-spacing: 0.3rem;
+      font-weight: 400; }
     .search-results .beer-item img {
       width: auto;
       height: 300px;
       margin: 0 auto; }
     .search-results .beer-item:hover {
-      box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8); }
+      box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem #2695ff, inset 0 0 2rem #2695ff, 0 0 4rem #2695ff, inset 0 0 4rem #2695ff;
+      background-color: rgba(255, 255, 255, 0.3); }
     .search-results .beer-item:hover .beer-item-name {
-      color: #ffb300; }
+      text-shadow: -0.2rem -0.2rem 1rem #2695ff, 0.2rem 0.2rem 1rem #2695ff, 0 0 2rem #2695ff, 0 0 4rem #2695ff, 0 0 6rem #2695ff, 0 0 8rem #2695ff, 0 0 10rem #2695ff; }
+    .search-results .beer-item .info-button,
+    .search-results .beer-item .add-button {
+      background: transparent; }
     .search-results .beer-item .info-button i,
     .search-results .beer-item .add-button i {
       font-size: 4.2rem;
-      transition: all 0.2s ease-in; }
+      transition: all 0.2s ease-in;
+      color: white; }
       .search-results .beer-item .info-button i:hover,
       .search-results .beer-item .add-button i:hover {
-        color: #ffb300; }
+        text-shadow: -0.2rem -0.2rem 1rem #2695ff, 0.2rem 0.2rem 1rem #2695ff, 0 0 2rem #2695ff, 0 0 4rem #2695ff, 0 0 6rem #2695ff, 0 0 8rem #2695ff, 0 0 10rem #2695ff; }
     .search-results .beer-item .add-button i:hover {
       animation: spin 2s infinite; }
     .search-results .beer-item .info-button i:hover {
@@ -425,6 +499,85 @@ body {
     .beer-item-modal .close-modal-button i:hover {
       color: #ffb300;
       animation: spin 2s infinite; }
+
+@media (max-width: 850px) {
+  .search-results .beer-item {
+    width: calc((100%/3) - 20px); } }
+
+@media (max-width: 620px) {
+  .finder-container h2 {
+    display: none; }
+  .search-results .beer-item {
+    width: calc((100%/3) - 20px);
+    height: 350px; }
+    .search-results .beer-item .beer-item-name {
+      line-height: 2rem;
+      font-size: 1.8rem; }
+    .search-results .beer-item img {
+      width: auto;
+      height: 200px;
+      margin: 0 auto; }
+    .search-results .beer-item .info-button i,
+    .search-results .beer-item .add-button i {
+      font-size: 3.2rem; } }
+
+@media (max-width: 500px) {
+  .finder-container {
+    height: 80px; }
+    .finder-container .auth .log-out {
+      display: none; }
+    .finder-container .auth .signout-symbol {
+      display: inline-block;
+      font-size: 3.8rem;
+      color: #00245b;
+      margin-left: 10px; }
+    .finder-container .book {
+      position: absolute;
+      right: 0;
+      top: 8px; }
+      .finder-container .book .beer-bible {
+        width: 60px; }
+  .search-results .beer-item {
+    width: calc((100%/2) - 20px);
+    height: 280px; }
+    .search-results .beer-item .beer-item-name {
+      line-height: 2rem;
+      font-size: 1.8rem; }
+    .search-results .beer-item img {
+      width: auto;
+      height: 150px;
+      margin: 0 auto; }
+    .search-results .beer-item .info-button i,
+    .search-results .beer-item .add-button i {
+      font-size: 3.6rem; }
+  .search-form button {
+    font-size: 3rem;
+    font-family: "neontubes";
+    margin: 0 auto 15px;
+    display: block;
+    border: none;
+    background: transparent;
+    color: #fefefe;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 transparent, 0 0 10px #fff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff, 0 0 300px #2695ff, 0 0 500px #2695ff; }
+  .search-form div {
+    float: left;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px; }
+    .search-form div label {
+      font-size: 2.6rem;
+      margin: 0;
+      margin-right: 5px; }
+    .search-form div input {
+      font-size: 1.8rem;
+      width: 85%;
+      max-width: 400px; }
+  .beer-item-modal .ingredient-list .list {
+    display: none; }
+  .beer-item-modal p {
+    height: 60vh;
+    overflow-y: auto; } }
 
 .recipe-book-container {
   height: 100%;
