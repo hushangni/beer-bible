@@ -7,24 +7,17 @@ body {
   width: 100%;
   height: 100%;
   display: table;
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(/assets/brick-wall.jpg);
   background-size: cover;
-  background-repeat: no-repeat;  
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(/assets/brick-wall.jpg);
 }
 
-@font-face {
-    font-family: 'neontubes';
-    src: url('https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot');
-    src: url('https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot?#iefix') format('embedded-opentype'),
-         url('https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff2') format('woff2'),
-         url('https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff') format('woff'),
-         url('https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+header {
+  height:  100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
-$clr1: rgb(177,7,7);
-$clr2: rgb(38,149,255);
 
 .logoBig {
   display: block;
@@ -33,6 +26,24 @@ $clr2: rgb(38,149,255);
   font-size: 10vw;
   text-align: center;
   white-space: nowrap;
+    // laptop breakpoint
+    @include breakpoint(laptop){
+      font-size: 22vh;
+      margin-top: 100px;
+    }
+    // chromebook breakpoint
+    @include breakpoint(chromeBook) {
+      font-size: 23vh;
+      letter-spacing: 12px;
+    }
+    // phablet breakpoint 
+    @include breakpoint(phablet) {
+      font-size: 20vw;
+    }
+    // mobileonly breakpoint 
+    @include breakpoint(mobileonly) {
+      font-size: 20vw;
+    }
 
   .beer{
     position: relative;
@@ -42,21 +53,37 @@ $clr2: rgb(38,149,255);
     position: absolute;
     width: 100%;
     top: 22%;
+      // laptop breakpoint
+      @include breakpoint(laptop){
+        top: 37%;
+      }
+       // chromebook breakpoint
+      @include breakpoint(chromeBook) {
+        top: 44%;
+      }
+      // phablet breakpoint 
+      @include breakpoint(phablet) {
+        top: 25%;
+      }
+      // mobileonly breakpoint 
+      @include breakpoint(mobileonly) {
+        top: 28%;
+      }
   }
-  
+
   .beerBible {
     transform: rotate(-1deg);
     color: scale-color($clr1, $lightness: 85%);
     text-shadow:
-      0 0 0 transparent,
-      0 0 10px $clr1,
-      0 0 20px rgba($clr1,.5),
-      0 0 40px rgba($clr1,1),
-      0 0 100px rgba($clr1,1),
-      0 0 200px rgba($clr1,1),
-      0 0 300px rgba($clr1,1),
-      0 0 500px rgba($clr1,1),
-      0 0 1000px rgba($clr1,1);
+                0 0 0 transparent,
+                0 0 10px $clr1,
+                0 0 20px rgba($clr1,.5),
+                0 0 40px rgba($clr1,1),
+                0 0 100px rgba($clr1,1),
+                0 0 200px rgba($clr1,1),
+                0 0 300px rgba($clr1,1),
+                0 0 500px rgba($clr1,1),
+                0 0 1000px rgba($clr1,1);
     animation: blink 4s infinite alternate;
   }
 }
@@ -67,9 +94,28 @@ $clr2: rgb(38,149,255);
   margin-top: 150px;
   width: 35%;
   font-family: "neontubes";
-  font-size: 10vw;
   text-align: center;
   white-space: nowrap;
+    // laptop breakpoint
+    @include breakpoint(laptop) {
+      width: 50%;
+      margin-top: 170px;
+    }
+    // chromebook breakpoint
+    @include breakpoint(chromeBook) {
+     width: 55%;
+     margin-top: 142px;
+    }
+    // phablet breakpoint 
+    @include breakpoint(phablet) {
+      width: 100%;
+      margin-top: 80px;
+    }
+    // mobileonly breakpoint 
+    @include breakpoint(mobileonly) {
+      margin-top: 100px;
+      width: 97%;
+    }
   
   .signUp,
   .logIn {
@@ -85,16 +131,187 @@ $clr2: rgb(38,149,255);
     text-decoration: none;
     color: scale-color($clr2, $lightness: 80%);
     text-shadow:
-      0 0 0 transparent,
-      0 0 10px $clr2,
-      0 0 20px rgba($clr2,.5),
-      0 0 40px rgba($clr2,1),
-      0 0 100px rgba($clr2,1),
-      0 0 200px rgba($clr2,1),
-      0 0 300px rgba($clr2,1),
-      0 0 500px rgba($clr2,1);
+                0 0 0 transparent,
+                0 0 10px $clr2,
+                0 0 20px rgba($clr2,.5),
+                0 0 40px rgba($clr2,1),
+                0 0 100px rgba($clr2,1),
+                0 0 200px rgba($clr2,1),
+                0 0 300px rgba($clr2,1),
+                0 0 500px rgba($clr2,1);
     animation: buzz 0.01s infinite alternate;
+      // laptop breakpoint
+      @include breakpoint(laptop){
+        font-size: 4vw;
+      }
+      // phablet breakpoint 
+      @include breakpoint(phablet) {
+        font-size: 8vw;
+      }
+      // mobileonly breakpoint 
+      @include breakpoint(mobileonly) {
+        font-size: 7vw;
+      }
   }
+}
+
+.signUpForm, 
+.logInForm {
+  margin: 0 auto;
+  display: block;
+  margin-top: 40px;
+  width: 100%;
+    // chromebook breakpoint
+      @include breakpoint(chromeBook) {
+        margin-top: 20px;
+        width: 100%;
+      }
+    div {
+    float: left;
+    width: 33.3%;
+    }      
+    .emailContainer, 
+    .passwordContainer, 
+    .confirmContainer {
+      // mobile only break poiny
+      @include breakpoint(phablet) {
+        width: 100%;
+        margin: 30px 0;
+      }
+      .email {
+        // mobile only break poiny
+        @include breakpoint(phablet) {
+          width: 75%;
+        } 
+      }
+      .confirm {
+        // mobile only break poiny
+        @include breakpoint(phablet) {
+          width: 67%;
+        }
+      }
+      label {
+      font-family: "neontubes";
+      font-size: 2vw;
+      color: scale-color($clr3, $lightness: 80%);
+      text-transform: uppercase;
+      text-shadow:
+                  0 0 0 transparent,
+                  0 0 10px $clr3,
+                  0 0 20px rgba($clr3,.5),
+                  0 0 40px rgba($clr3,1),
+                  0 0 100px rgba($clr3,1),
+                  0 0 200px rgba($clr3,1),
+                  0 0 300px rgba($clr3,1),
+                  0 0 500px rgba($clr3,1);  
+        // chromebook breakpoint
+        @include breakpoint(chromeBook) {
+          font-size: 1.5vw;  
+        }
+        // mobile only break poiny
+        @include breakpoint(phablet) {
+          font-size: 5vw;
+        }
+                         
+      }
+    }    
+    input{
+      color: white;
+      font-size: 20px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      background: none;
+      margin: 0 10px;
+      width: 50%;
+      padding: 8px 0;
+      border: none;
+      box-shadow: 
+                0 4px 2px -2px scale-color($clr1, $lightness: 80%);
+      // mobile only break point
+      @include breakpoint(mobileonly) {
+        width: 60%;
+      }          
+    }
+
+    .logInEmail, 
+    .logInPassword {
+      width: 50%;
+       // mobile only break point
+      @include breakpoint(mobileonly) {
+        width: 69%;
+      }   
+    }
+    .logInPassword {
+      @include breakpoint(phablet) {
+         width: 55%;
+      }
+    }
+    button {
+      font-family: "neontubes";
+      font-size: 2vw;
+      color: scale-color($clr1, $lightness: 80%);
+      text-transform: uppercase;
+      text-shadow:
+                  0 0 0 transparent,
+                  0 0 10px $clr1,
+                  0 0 20px rgba($clr1,.5),
+                  0 0 40px rgba($clr1,1),
+                  0 0 100px rgba($clr1,1),
+                  0 0 200px rgba($clr1,1),
+                  0 0 300px rgba($clr1,1),
+                  0 0 500px rgba($clr1,1);
+      border: none;
+      background: none;
+      transition: 1s all ease;
+        // chromebook breakpoint
+        @include breakpoint(chromeBook) {
+          font-size: 1.5vw;  
+        } 
+          // mobile only break poiny
+        @include breakpoint(phablet) {
+          font-size: 6.5vw;
+          display: block;
+          margin: 30px auto;
+        }    
+        &:hover {
+          color: scale-color($clr2, $lightness: 80%);
+           text-shadow:
+                        0 0 0 transparent,
+                        0 0 10px $clr2,
+                        0 0 20px rgba($clr2,.5),
+                        0 0 40px rgba($clr2,1),
+                        0 0 100px rgba($clr2,1),
+                        0 0 200px rgba($clr2,1),
+                        0 0 300px rgba($clr2,1),
+                        0 0 500px rgba($clr2,1);
+        }
+    }
+}
+
+.logInForm {
+  width: 60%;
+  // chromebook breakpoint
+    @include breakpoint(chromeBook) {
+      width: 70%;
+    }
+    @include breakpoint(phablet) {
+      width: 100%;
+    }
+      label {
+        // chromebook breakpoint
+        @include breakpoint(chromeBook) {
+          font-size: 2vw;  
+        }     
+      }
+      button {
+        // chromebook breakpoint
+        @include breakpoint(chromeBook) {
+          font-size: 2vw;  
+        }  
+         @include breakpoint(phablet) {
+          font-size: 6.5vw;
+        }   
+      }
 }
 
 @keyframes buzz {
@@ -115,86 +332,3 @@ $clr2: rgb(38,149,255);
   }
   .logo .signUp .logIn { font-size: 103px; }
 }
-
-
-// @font-face {
-//   font-family: neon;
-//   src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
-// }
-
-// .heading {
-//   text-align: center;
-//   vertical-align: middle;
-//   margin-top: 100px;
-// }
-
-// .neon {
-//   font-family: neon;
-//   color: #FB4264;
-//   font-size: 10.5vw;
-//   line-height: 10vw;
-//   text-shadow: 0 0 3vw #F40A35;
-// }
-
-// .flux {
-//   font-family: neon;
-//   color: #426DFB;
-//   font-size: 10.5vw;
-//   line-height: 10vw;
-//   text-shadow: 0 0 3vw #2356FF;
-
-// }
-
-// .neon {
-//   animation: neon 1s ease infinite;
-//   -moz-animation: neon 1s ease infinite;
-//   -webkit-animation: neon 1s ease infinite;
-// }
-
-// @keyframes neon {
-//   0%,
-//   100% {
-//     text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
-//     color: #FED128;
-//   }
-//   50% {
-//     text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
-//     color: #806914;
-//   }
-// }
-
-// .flux {
-//   animation: flux 2s linear infinite;
-//   -moz-animation: flux 2s linear infinite;
-//   -webkit-animation: flux 2s linear infinite;
-//   -o-animation: flux 2s linear infinite;
-// }
-
-// @keyframes flux {
-//   0%,
-//   100% {
-//     text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
-//     color: #28D7FE;
-//   }
-//   50% {
-//     text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
-//     color: #146C80;
-//   }
-// }
-
-// .auth {
-//   clear: both;
-// }
-
-// .signUp, 
-// .logIn {
-//   @include title-styles(80);
-//   font-family: 'bruxregular';
-//   text-transform: uppercase;
-//   color: rgba(250,250,250,0.8);
-//   text-decoration: none;
-//   letter-spacing: 15px;
-//   float: left;
-//   margin: 0 15px;
-//   transition: 1s all ease;
-// }

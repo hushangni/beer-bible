@@ -48,29 +48,42 @@ class LandingPage extends Component {
                 this.props.setUser(userId);
         });
     }
-    // ------------------------------
     render(){
         let formLogin = '';
         if (this.state.formShow === 'signUp') {
             formLogin = (
-                <form onSubmit={this.signUp} value={this.state.formShow} className='userForm wrapper'>
-                    <label htmlFor="email">Email:</label>
-                    <input type='email' className="email" name='email' onChange={this.handleChange} value={this.state.email} />
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" className="password" value={this.state.password} name="password" onChange={this.handleChange} />
-                    <label htmlFor="confirm">Confirm Password:</label>
-                    <input type="password" className="confirm" name="confirm" value={this.state.confirm} onChange={this.handleChange} />
-                    <button>Sign Up</button>
-                </form>
+                <form onSubmit={this.signUp} value={this.state.formShow} className='wrapper formContainer'>
+                    <div className="signUpForm">
+                        <div className="emailContainer">
+                            <label htmlFor="email">Email:</label>
+                            <input type='email' className="email" name='email' onChange={this.handleChange} value={this.state.email} />
+                        </div>
+                        <div className="passwordContainer">
+                            <label htmlFor="password">Password:</label>
+                            <input type="password" className="password" value={this.state.password} name="password" onChange={this.handleChange} />
+                        </div>
+                        <div className="confirmContainer">
+                            <label htmlFor="confirm">Confirm:</label>
+                            <input type="password" className="confirm" name="confirm" value={this.state.confirm} onChange={this.handleChange} />
+                            <button>Sign Up</button>
+                        </div>
+                    </div>
+                </form>    
             );
         } else if (this.state.formShow === 'logIn') {
             formLogin = (
-                <form onSubmit={this.logIn} value={this.state.formShow} className="userForm wrapper">
-                    <label htmlFor="email">Email: </label>
-                    <input type="email" className="email" name="email" value={this.state.email} onChange={this.handleChange} />
-                    <label htmlFor="password">Password: </label>
-                    <input type="password" className="password" value={this.state.password} name="password" onChange={this.handleChange} />
-                    <button>Log In</button>
+                <form onSubmit={this.logIn} value={this.state.formShow} className="wrapper">
+                    <div className="logInForm">
+                        <div className="emailContainer">
+                            <label htmlFor="email">Email: </label>
+                            <input type="email" className="logInEmail" name="email" value={this.state.email} onChange={this.handleChange} />
+                        </div>
+                        <div className="passwordContainer">
+                            <label htmlFor="password">Password: </label>
+                            <input type="password" className="logInPassword" value={this.state.password} name="password" onChange={this.handleChange} />
+                        </div>
+                        <button>Log In</button>
+                    </div>
                 </form>
             )
         }

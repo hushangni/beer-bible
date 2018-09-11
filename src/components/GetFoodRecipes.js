@@ -31,7 +31,6 @@ export default class GetFoodRecipes extends Component{
 
                 if (res.data.matches[0]) {
                     const id=res.data.matches[0].id
-                    console.log(id);
                     const foodRecipe = { 
                     foodRecipeId: `https://www.yummly.com/recipe/${res.data.matches[0].id}`, 
                     foodImg: res.data.matches[0].imageUrlsBySize[90], foodName: res.data.matches[0].recipeName };
@@ -57,7 +56,7 @@ export default class GetFoodRecipes extends Component{
                             <li className="food-item">
                             <h4>
                                 <a href={recipe.foodRecipeId}>
-                                {recipe.foodName.length>40? recipe.foodName.slice(0,40) + "...":recipe.foodName}
+                                {recipe.foodName.length>30? recipe.foodName.slice(0,30) + "...":recipe.foodName}
                                 </a></h4>
                                 <a href={recipe.foodRecipeId}>
                                     <div className="foodImage">
