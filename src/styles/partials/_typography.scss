@@ -1,0 +1,52 @@
+// ----- TYPOGRAPHY -----
+$basefont1: 'Source Sans Pro', sans-serif;
+$basefont2: 'Oswald', sans-serif;
+
+@mixin title-styles($sizeValue) {
+    font-size: $sizeValue * 1px;
+    font-size: ($sizeValue/10) * 1rem;
+    font-weight: 700;
+    font-family: $basefont2;
+}
+@mixin paragraph-styles($sizeValue) {
+    font-size: $sizeValue * 1px;
+    font-size: ($sizeValue/10) * 1rem;
+    font-family: $basefont1;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+html {
+    font-size: 62.5%;
+}
+h1 {
+    @include title-styles (35);
+    padding: 20px 0;
+    color: $dkgrey;
+}
+h2 {
+    @include paragraph-styles (30);
+    padding: 0 15px 40px 15px;
+    text-align: left;
+    color: $dkgrey;
+}
+h3 {
+    @include title-styles (25);
+    text-align: center;
+    color: $red;
+    text-shadow: 1px 1px 2px $mdgrey;
+    padding-top: 20px;
+}
+h4 {
+    @include title-styles (20);
+    color: $blue;
+}
+h5 {
+    @include paragraph-styles(18);
+}
+ul, li {
+    @include paragraph-styles (18);
+}
+p {
+    @include paragraph-styles (18);
+    text-align: center;
+}
