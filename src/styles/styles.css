@@ -147,13 +147,8 @@ h1 {
   font-family: "Oswald", sans-serif; }
 
 h2 {
-<<<<<<< HEAD
   font-size: 25px;
   font-size: 2.5rem;
-=======
-  font-size: 30px;
-  font-size: 3rem;
->>>>>>> 5006e18e2b76da6129985e3f88b133d978f78fa9
   font-weight: 700;
   font-family: "Oswald", sans-serif; }
 
@@ -341,30 +336,6 @@ body {
     font-size: 150px; }
   .logo .signUp .logIn {
     font-size: 103px; } }
-
-.beer-bible {
-  width: 150px; }
-
-.auth {
-  clear: both; }
-
-.signUp,
-.logIn {
-  font-size: 80px;
-  font-size: 8rem;
-  font-weight: 700;
-  font-family: "Oswald", sans-serif;
-  font-family: 'humgerregular';
-  text-transform: uppercase;
-  color: grey;
-  text-decoration: none;
-  letter-spacing: 4px;
-  float: left;
-  margin: 0 15px;
-  transition: 1s all ease; }
-  .signUp:hover,
-  .logIn:hover {
-    color: #00778a; }
 
 .finder-container {
   width: 90%;
