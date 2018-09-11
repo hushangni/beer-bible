@@ -115,13 +115,13 @@ export default class Finder extends Component {
                     <button onClick={this.handleSubmit}>Submit</button>
                 </form>
 
-                <div className="search-results">
+                <div className="search-results wrapper clearfix">
                     {this.state.beers.map((beer) => {
                         return(
                             <React.Fragment >
                                 <div className="beer-item-modal" id={beer.id}>
                                     <button className="button close-modal-button" onClick={() => this.handleClose(beer.id)}><i className="fas fa-times"></i></button>
-                                    <h2>{beer.name}</h2>
+                                    <h2 className="beer-item-name">{beer.name}</h2>
                                     <p>{beer.description}</p>
                                     <div className="ingredient-list">
                                         <ul className="hops-list list">
@@ -143,8 +143,9 @@ export default class Finder extends Component {
                                     </div>
                                 </div>
                                 <div className="beer-item">
-                                    <img src={beer.image_url} alt="beer image"/>
-                                    <h2>{beer.name}</h2>
+
+                                    <img src={beer.image_url} alt="beer image" className="beer-image"/>
+                                    <h2 className="beer-item-name">{beer.name}</h2>
                                     <button className="button info-button" onClick={() => this.handleInfo(beer.id, beer)}><i class="fas fa-info-circle"></i></button>
                                     <button onClick={() => this.handleSave(beer)} className="button add-button"><i class="fas fa-plus-circle"></i></button>
                                 </div>
