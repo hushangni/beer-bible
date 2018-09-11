@@ -132,8 +132,9 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   box-sizing: border-box; }
 
 @font-face {
-  font-family: 'bruxregular';
-  src: url("/assets/fonts/webfontkit-20180911-111510/brux-regular-webfont.woff2") format("woff2"), url("/assets/fonts/webfontkit-20180911-111510/brux-regular-webfont.woff") format("woff");
+  font-family: 'neontubes';
+  src: url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot");
+  src: url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot?#iefix") format("embedded-opentype"), url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff2") format("woff2"), url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff") format("woff"), url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -279,13 +280,6 @@ header {
   background-size: cover;
   background-repeat: no-repeat; }
 
-@font-face {
-  font-family: 'neontubes';
-  src: url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot");
-  src: url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot?#iefix") format("embedded-opentype"), url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff2") format("woff2"), url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff") format("woff"), url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; }
-
 .logoBig {
   display: block;
   margin: 0 auto;
@@ -293,12 +287,38 @@ header {
   font-size: 10vw;
   text-align: center;
   white-space: nowrap; }
+  @media (max-width: 1024px) {
+    .logoBig {
+      font-size: 22vh;
+      margin-top: 100px; } }
+  @media (max-width: 960px) {
+    .logoBig {
+      font-size: 23vh;
+      letter-spacing: 12px; } }
+  @media (max-width: 550px) {
+    .logoBig {
+      font-size: 20vw; } }
+  @media (max-width: 375px) {
+    .logoBig {
+      font-size: 20vw; } }
   .logoBig .beer {
     position: relative; }
   .logoBig .bible {
     position: absolute;
     width: 100%;
     top: 22%; }
+    @media (max-width: 1024px) {
+      .logoBig .bible {
+        top: 37%; } }
+    @media (max-width: 960px) {
+      .logoBig .bible {
+        top: 44%; } }
+    @media (max-width: 550px) {
+      .logoBig .bible {
+        top: 25%; } }
+    @media (max-width: 375px) {
+      .logoBig .bible {
+        top: 28%; } }
   .logoBig .beerBible {
     transform: rotate(-1deg);
     color: #fdd0d0;
@@ -311,9 +331,24 @@ header {
   margin-top: 150px;
   width: 35%;
   font-family: "neontubes";
-  font-size: 10vw;
   text-align: center;
   white-space: nowrap; }
+  @media (max-width: 1024px) {
+    .logoSmall {
+      width: 50%;
+      margin-top: 170px; } }
+  @media (max-width: 960px) {
+    .logoSmall {
+      width: 55%;
+      margin-top: 142px; } }
+  @media (max-width: 550px) {
+    .logoSmall {
+      width: 100%;
+      margin-top: 80px; } }
+  @media (max-width: 375px) {
+    .logoSmall {
+      margin-top: 100px;
+      width: 97%; } }
   .logoSmall .signUp,
   .logoSmall .logIn {
     display: block;
@@ -329,6 +364,159 @@ header {
     color: #d4eaff;
     text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff, 0 0 300px #2695ff, 0 0 500px #2695ff;
     animation: buzz 0.01s infinite alternate; }
+    @media (max-width: 1024px) {
+      .logoSmall .signUp,
+      .logoSmall .logIn {
+        font-size: 4vw; } }
+    @media (max-width: 550px) {
+      .logoSmall .signUp,
+      .logoSmall .logIn {
+        font-size: 8vw; } }
+    @media (max-width: 375px) {
+      .logoSmall .signUp,
+      .logoSmall .logIn {
+        font-size: 7vw; } }
+
+.signUpForm,
+.logInForm {
+  margin: 0 auto;
+  display: block;
+  margin-top: 40px;
+  width: 100%; }
+  @media (max-width: 960px) {
+    .signUpForm,
+    .logInForm {
+      margin-top: 20px;
+      width: 100%; } }
+  .signUpForm div,
+  .logInForm div {
+    float: left;
+    width: 33.3%; }
+  @media (max-width: 550px) {
+    .signUpForm .emailContainer,
+    .signUpForm .passwordContainer,
+    .signUpForm .confirmContainer,
+    .logInForm .emailContainer,
+    .logInForm .passwordContainer,
+    .logInForm .confirmContainer {
+      width: 100%;
+      margin: 30px 0; } }
+  @media (max-width: 550px) {
+    .signUpForm .emailContainer .email,
+    .signUpForm .passwordContainer .email,
+    .signUpForm .confirmContainer .email,
+    .logInForm .emailContainer .email,
+    .logInForm .passwordContainer .email,
+    .logInForm .confirmContainer .email {
+      width: 75%; } }
+  @media (max-width: 550px) {
+    .signUpForm .emailContainer .confirm,
+    .signUpForm .passwordContainer .confirm,
+    .signUpForm .confirmContainer .confirm,
+    .logInForm .emailContainer .confirm,
+    .logInForm .passwordContainer .confirm,
+    .logInForm .confirmContainer .confirm {
+      width: 67%; } }
+  .signUpForm .emailContainer label,
+  .signUpForm .passwordContainer label,
+  .signUpForm .confirmContainer label,
+  .logInForm .emailContainer label,
+  .logInForm .passwordContainer label,
+  .logInForm .confirmContainer label {
+    font-family: "neontubes";
+    font-size: 2vw;
+    color: #fefefe;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 transparent, 0 0 10px #fafafa, 0 0 20px rgba(250, 250, 250, 0.5), 0 0 40px #fafafa, 0 0 100px #fafafa, 0 0 200px #fafafa, 0 0 300px #fafafa, 0 0 500px #fafafa; }
+    @media (max-width: 960px) {
+      .signUpForm .emailContainer label,
+      .signUpForm .passwordContainer label,
+      .signUpForm .confirmContainer label,
+      .logInForm .emailContainer label,
+      .logInForm .passwordContainer label,
+      .logInForm .confirmContainer label {
+        font-size: 1.5vw; } }
+    @media (max-width: 550px) {
+      .signUpForm .emailContainer label,
+      .signUpForm .passwordContainer label,
+      .signUpForm .confirmContainer label,
+      .logInForm .emailContainer label,
+      .logInForm .passwordContainer label,
+      .logInForm .confirmContainer label {
+        font-size: 5vw; } }
+  .signUpForm input,
+  .logInForm input {
+    color: white;
+    font-size: 20px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    background: none;
+    margin: 0 10px;
+    width: 50%;
+    padding: 8px 0;
+    border: none;
+    box-shadow: 0 4px 2px -2px #fdc0c0; }
+    @media (max-width: 375px) {
+      .signUpForm input,
+      .logInForm input {
+        width: 60%; } }
+  .signUpForm .logInEmail,
+  .signUpForm .logInPassword,
+  .logInForm .logInEmail,
+  .logInForm .logInPassword {
+    width: 50%; }
+    @media (max-width: 375px) {
+      .signUpForm .logInEmail,
+      .signUpForm .logInPassword,
+      .logInForm .logInEmail,
+      .logInForm .logInPassword {
+        width: 69%; } }
+  @media (max-width: 550px) {
+    .signUpForm .logInPassword,
+    .logInForm .logInPassword {
+      width: 55%; } }
+  .signUpForm button,
+  .logInForm button {
+    font-family: "neontubes";
+    font-size: 2vw;
+    color: #fdc0c0;
+    text-transform: uppercase;
+    text-shadow: 0 0 0 transparent, 0 0 10px #b10707, 0 0 20px rgba(177, 7, 7, 0.5), 0 0 40px #b10707, 0 0 100px #b10707, 0 0 200px #b10707, 0 0 300px #b10707, 0 0 500px #b10707;
+    border: none;
+    background: none;
+    transition: 1s all ease; }
+    @media (max-width: 960px) {
+      .signUpForm button,
+      .logInForm button {
+        font-size: 1.5vw; } }
+    @media (max-width: 550px) {
+      .signUpForm button,
+      .logInForm button {
+        font-size: 6.5vw;
+        display: block;
+        margin: 30px auto; } }
+    .signUpForm button:hover,
+    .logInForm button:hover {
+      color: #d4eaff;
+      text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff, 0 0 300px #2695ff, 0 0 500px #2695ff; }
+
+.logInForm {
+  width: 60%; }
+  @media (max-width: 960px) {
+    .logInForm {
+      width: 70%; } }
+  @media (max-width: 550px) {
+    .logInForm {
+      width: 100%; } }
+  @media (max-width: 960px) {
+    .logInForm label {
+      font-size: 2vw; } }
+  @media (max-width: 960px) {
+    .logInForm button {
+      font-size: 2vw; } }
+  @media (max-width: 550px) {
+    .logInForm button {
+      font-size: 6.5vw; } }
 
 @keyframes buzz {
   70% {
