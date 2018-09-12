@@ -143,58 +143,62 @@ class RecipeBook extends Component {
 
     render() {
         return (
-            <main className="clearfix recipe-book-container wrapper">
-                <div className="recipe-book-header clearfix">
-                    <Link to="/Finder">
-                        <button>Back to Search</button>
-                    </Link>
-                    <h2>Your Recipes</h2>
-                    <img src="/assets/beerbible_open.png" alt="open beer bible"></img>
+            <main className="clearfix recipe-book-container">
+                <div className="recipe-book-header">
+                    <div className="wrapper-header clearfix">
+                        <Link to="/Finder">
+                            <button>Back to Search</button>
+                        </Link>
+                        <h2>Your Beer Bible</h2>
+                        <img src="/assets/beerbible_open.png" alt="open beer bible"></img>
+                    </div>
                 </div>
 
-                <aside className="beers-list">
-                    {this.state.beersList.map((beer) => {
-                        return (
-                            <div className="beer-box-wrapper clearfix">
-                                <div onClick={() => { this.displayFullRecipe(beer) }} className="beer-box" key={beer.key}>
-                                    <h4>{beer.name}</h4>
-                                    {/* <p>{beer.brewersTips}</p> */}
+                <div className="wrapper">
+                    <aside className="beers-list">
+                        {this.state.beersList.map((beer) => {
+                            return (
+                                <div className="beer-box-wrapper clearfix">
+                                    <div onClick={() => { this.displayFullRecipe(beer) }} className="beer-box" key={beer.key}>
+                                        <h4>{beer.name}</h4>
+                                        {/* <p>{beer.brewersTips}</p> */}
+                                    </div>
+                                    <button onClick={() => this.deleteRecipe(beer.name)} id={beer.key}><i class="fas fa-trash-alt"></i></button>
                                 </div>
-                                <button onClick={() => this.deleteRecipe(beer.name)} id={beer.key}><i class="fas fa-trash-alt"></i></button>
-                            </div>
 
-                        )
-                    })}
-                </aside>
-                {
-                    this.state.beerName ?
-                        <FullRecipe
-                            beerName={this.state.beerName}
-                            beerHops={this.state.beerHops}
-                            beerMalts={this.state.beerMalts}
-                            beerYeast={this.state.beerYeast}
-                            beerVolume={this.state.beerVolume}
-                            beerMethodMashTemp={this.state.beerMethodMashTemp}
-                            beerMethodMashDuration={this.state.beerMethodMashDuration}
-                            foodPairings={this.state.foodPairings}
-                            brewersTips={this.state.brewersTips} 
-                            />
-                        :
-                        <section className="full-recipe">
-                            <h3>Choose a Recipe to view!</h3>
+                            )
+                        })}
+                    </aside>
+                    {
+                        this.state.beerName ?
+                            <FullRecipe
+                                beerName={this.state.beerName}
+                                beerHops={this.state.beerHops}
+                                beerMalts={this.state.beerMalts}
+                                beerYeast={this.state.beerYeast}
+                                beerVolume={this.state.beerVolume}
+                                beerMethodMashTemp={this.state.beerMethodMashTemp}
+                                beerMethodMashDuration={this.state.beerMethodMashDuration}
+                                foodPairings={this.state.foodPairings}
+                                brewersTips={this.state.brewersTips} 
+                                />
+                            :
+                            <section className="full-recipe">
+                                <h3>Choose a Recipe to view!</h3>
 
-                            <div className="ask-dave">
-                                <img src="/assets/dave.png" />
-                                <h4>Click on dave for tips on the beer you choose to brew!</h4>
-                            </div>
-                        </section>
-                }
-                <form action="" className="notes-box">
-                    <h3 className="notes-header">Notes</h3>
-                    <textarea type="text" name="notes" id="notes" placeholder="Notes from your brewing experience for this beer here..." onChange={this.handleChange} />
-                    <label htmlFor="notes" className="visually-hidden">enter the notes for your beer brewing experience here</label>
-                    <input type="submit" value="Save Note" className="save-note-button button" onClick={this.handleSave} />
-                </form>
+                                <div className="ask-dave">
+                                    <img src="/assets/dave.png" />
+                                    <h4>Click on dave for tips on the beer you choose to brew!</h4>
+                                </div>
+                            </section>
+            }
+                    <form action="" className="notes-box">
+                        <h3 className="notes-header">Notes</h3>
+                        <textarea type="text" name="notes" id="notes" placeholder="Notes from your brewing experience for this beer here..." onChange={this.handleChange} />
+                        <label htmlFor="notes" className="visually-hidden">enter the notes for your beer brewing experience here</label>
+                        <input type="submit" value="Save Note" className="save-note-button button" onClick={this.handleSave} />
+                    </form>
+                </div>
             </main>
         )
     }
