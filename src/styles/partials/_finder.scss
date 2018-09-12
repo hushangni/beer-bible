@@ -172,6 +172,18 @@
         .info-button,
         .add-button {
             background: transparent;
+
+            &:hover i {
+                animation: pulse 2s infinite;
+                text-shadow:
+                -0.2rem -0.2rem 1rem rgb(38,149,255),
+                0.2rem 0.2rem 1rem rgb(38,149,255),
+                0 0 2rem rgb(38,149,255),
+                0 0 4rem rgb(38,149,255),
+                0 0 6rem rgb(38,149,255),
+                0 0 8rem rgb(38,149,255),
+                0 0 10rem rgb(38,149,255);
+            }
         }
 
         .info-button i,
@@ -210,6 +222,7 @@
     color: $dkblue;
     padding: 3%;
     position: fixed;
+    z-index: 3;
     width: 70%;
     top: 50%;
     left: 50%;
@@ -225,14 +238,19 @@
 
     .close-modal-button {
         background: transparent;
+        position: absolute;
+        right: 20px;
+        z-index: 10;
+        top: 20px;
+        &:hover i{
+            color: $yellow;
+            animation: spin 2s infinite;
+        }
     }
 
     .close-modal-button i {
         font-size: 4.2rem;
         color: $dkblue;
-        position: absolute;
-        right: 20px;
-        top: 20px;
         transition: all 0.2s ease-in;
 
         &:hover{
