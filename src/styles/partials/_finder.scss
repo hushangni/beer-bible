@@ -42,6 +42,16 @@
         margin-top: 15px;
         text-shadow: 1px 1px 5px white;
     }
+
+    .guest-warning {
+        color: rgba(0, 0, 0, 0.6);
+        font-style: italic;
+        width: 200px;
+        position: absolute;
+        right: 150px;
+        top: 10px;
+    }
+
     .book {
         float: right;
         margin-right: 40px;
@@ -267,15 +277,24 @@
             width: calc((100%/3) - 20px);
         }
     }
+    .finder-container {
+         h2 {
+            float: left;
+            margin-left: 20px;
+            font-size: 2.7rem;
+        }
+    }
 }
 
-@media(max-width: 620px) {
+@media (max-width: 750px) {
     .finder-container {
         h2 {
             display: none;
         }
     }
+}
 
+@media(max-width: 620px) {
     .search-results {
         .beer-item {
             width: calc((100%/3) - 20px);
@@ -299,9 +318,16 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 520px) {
     .finder-container {
         height: 80px;
+
+        .guest-warning {
+            width: 180px;
+            right: 85px;
+            top: -5px;
+            font-size: 1.5rem;
+        }
         .auth {
             .log-out {
                 display: none;
@@ -397,6 +423,14 @@
         p {
             height: 60vh;
             overflow-y: auto;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .finder-container {
+        .guest-warning {
+            display: none;
         }
     }
 }

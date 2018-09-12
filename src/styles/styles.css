@@ -263,17 +263,16 @@ button {
   100% {
     -webkit-filter: drop-shadow(10px -10px -20px #ffb300); } }
 
-html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  display: table;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/assets/brick-wall.jpg); }
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/assets/brick-wall.jpg);
+  overflow-x: hidden; }
 
 .logoBig {
   font-family: "neontubes";
@@ -348,7 +347,8 @@ body {
       margin-top: 100px;
       width: 97%; } }
   .logoSmall .signUp,
-  .logoSmall .logIn {
+  .logoSmall .logIn,
+  .logoSmall .guest {
     font-family: "neontubes";
     font-size: 3vw;
     text-decoration: none;
@@ -363,16 +363,24 @@ body {
     animation: buzz 0.01s infinite alternate; }
     @media (max-width: 1024px) {
       .logoSmall .signUp,
-      .logoSmall .logIn {
+      .logoSmall .logIn,
+      .logoSmall .guest {
         font-size: 4vw; } }
     @media (max-width: 550px) {
       .logoSmall .signUp,
-      .logoSmall .logIn {
+      .logoSmall .logIn,
+      .logoSmall .guest {
         font-size: 8vw; } }
     @media (max-width: 375px) {
       .logoSmall .signUp,
-      .logoSmall .logIn {
+      .logoSmall .logIn,
+      .logoSmall .guest {
         font-size: 7vw; } }
+  .logoSmall .guest {
+    color: #fff0cc;
+    display: block;
+    margin-left: 25%;
+    text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(255, 179, 0, 0.5), 0 0 40px #ffb300, 0 0 100px #ffb300, 0 0 200px #ffb300, 0 0 300px #ffb300, 0 0 500px #ffb300; }
 
 .signUpForm,
 .logInForm {
@@ -507,6 +515,13 @@ body {
     margin-left: 50px;
     margin-top: 15px;
     text-shadow: 1px 1px 5px white; }
+  .finder-container .guest-warning {
+    color: rgba(0, 0, 0, 0.6);
+    font-style: italic;
+    width: 200px;
+    position: absolute;
+    right: 150px;
+    top: 10px; }
   .finder-container .book {
     float: right;
     margin-right: 40px;
@@ -633,11 +648,17 @@ body {
 
 @media (max-width: 850px) {
   .search-results .beer-item {
-    width: calc((100%/3) - 20px); } }
+    width: calc((100%/3) - 20px); }
+  .finder-container h2 {
+    float: left;
+    margin-left: 20px;
+    font-size: 2.7rem; } }
+
+@media (max-width: 750px) {
+  .finder-container h2 {
+    display: none; } }
 
 @media (max-width: 620px) {
-  .finder-container h2 {
-    display: none; }
   .search-results .beer-item {
     width: calc((100%/3) - 20px);
     height: 350px; }
@@ -652,9 +673,14 @@ body {
     .search-results .beer-item .add-button i {
       font-size: 3.2rem; } }
 
-@media (max-width: 500px) {
+@media (max-width: 520px) {
   .finder-container {
     height: 80px; }
+    .finder-container .guest-warning {
+      width: 180px;
+      right: 85px;
+      top: -5px;
+      font-size: 1.5rem; }
     .finder-container .auth .log-out {
       display: none; }
     .finder-container .auth .signout-symbol {
@@ -709,6 +735,10 @@ body {
   .beer-item-modal p {
     height: 60vh;
     overflow-y: auto; } }
+
+@media (max-width: 360px) {
+  .finder-container .guest-warning {
+    display: none; } }
 
 .recipe-book-container {
   height: 100%;

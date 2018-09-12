@@ -17,6 +17,8 @@ class App extends Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        console.log(user, "guest atm");
+
         // this is where we'll make our firebase ref call
         // to display users search results / saved recipes / notes
         this.setState({
@@ -40,8 +42,16 @@ class App extends Component {
 
   }
 
-  setUser = (userId) => {
+  setGuest = () => {
+    this.setState({
+      guest: true
+    })
+  }
 
+  setUser = (userId) => {
+    this.setState({
+      guest: false
+    })
   }
   render() {
     return (
@@ -50,11 +60,14 @@ class App extends Component {
           <Route exact path="/" render={(props) => {
             if (this.state.loggedIn) {
               return (
-                <Redirect to="/finder" />
+                <Redirect to={{
+                  pathname: '/finder',
+                  state: { guest: this.state.guest }
+                }}/>
               )
             } else {
               return (
-                <LandingPage {...props} setUser={this.setUser} />
+                <LandingPage {...props} setUser={this.setUser} setGuest={this.setGuest} />
               )
             }
           }} />
@@ -66,7 +79,7 @@ class App extends Component {
               )
             } else {
               return (
-                <Finder {...props} userState={this.state.loggedIn} logout={this.logout} />
+                <Finder {...props} userState={this.state.loggedIn} logout={this.logout} guest={this.state.guest} />
               )
             }
           }} />
