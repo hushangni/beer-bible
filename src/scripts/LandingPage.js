@@ -48,6 +48,18 @@ class LandingPage extends Component {
                 this.props.setUser(userId);
         });
     }
+
+    guestLogin = (e) => {
+        e.preventDefault();
+        firebase.auth().signInAnonymously().catch(function (error) {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(`Error: ${errorCode}: ${errorMessage} `);
+        });
+
+        this.props.setGuest();
+    }
     render(){
         let formLogin = '';
         if (this.state.formShow === 'signUp') {
@@ -68,7 +80,7 @@ class LandingPage extends Component {
                         </div>
                         <button>Sign Up</button>
                     </div>
-                </form>    
+                </form>
             );
         } else if (this.state.formShow === 'logIn') {
             formLogin = (
@@ -98,6 +110,7 @@ class LandingPage extends Component {
                         <ul className="clearfix logoSmall">
                             <li><a href="" className="signUp" onClick={this.formShow}>Sign Up</a></li>
                             <li><a href="" className="logIn" onClick={this.formShow}>Log In</a></li>
+                            <li><a href="" className="guest" onClick={this.guestLogin}>Guest</a></li>
                         </ul>
                     </nav>
                     {formLogin}

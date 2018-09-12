@@ -1,16 +1,15 @@
-
-html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  display: table;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(/assets/brick-wall.jpg);
+  overflow-x: hidden;
 }
+
 
 // big neon sign styles
 .logoBig {
@@ -27,15 +26,15 @@ body {
       font-size: 23vh;
       letter-spacing: 12px;
     }
-    // bigPhablet breakpoint 
+    // bigPhablet breakpoint
     @include breakpoint(bigPhablet) {
       font-size: 17vw;
     }
-    // phablet breakpoint 
+    // phablet breakpoint
     @include breakpoint(phablet) {
       font-size: 20vw;
     }
-    // mobileonly breakpoint 
+    // mobileonly breakpoint
     @include breakpoint(mobileonly) {
       font-size: 20vw;
     }
@@ -56,7 +55,7 @@ body {
                 0 0 1000px rgba($clr1,1);
     animation: blink 4s infinite alternate;
   }
-    // beer, bible classes 
+    // beer, bible classes
   .beer{
     position: relative;
   }
@@ -76,11 +75,11 @@ body {
       @include breakpoint(bigPhablet) {
         top: 32%;
       }
-      // phablet breakpoint 
+      // phablet breakpoint
       @include breakpoint(phablet) {
         top: 25%;
       }
-      // mobileonly breakpoint 
+      // mobileonly breakpoint
       @include breakpoint(mobileonly) {
         top: 28%;
       }
@@ -103,24 +102,25 @@ body {
      width: 55%;
      margin-top: 142px;
     }
-    // bigPhablet breakpoint 
+    // bigPhablet breakpoint
     @include breakpoint(bigPhablet) {
       margin-top: 120px;
     }
-    // phablet breakpoint 
+    // phablet breakpoint
     @include breakpoint(phablet) {
       width: 100%;
       margin-top: 80px;
     }
-    // mobileonly breakpoint 
+    // mobileonly breakpoint
     @include breakpoint(mobileonly) {
       margin-top: 100px;
       width: 97%;
     }
-  
+
   // text styles for small neon signs (log in/sign up)
   .signUp,
-  .logIn {
+  .logIn,
+  .guest {
     font-family: "neontubes";
     font-size: 3vw;
     text-decoration: none;
@@ -145,18 +145,35 @@ body {
       @include breakpoint(laptop){
         font-size: 4vw;
       }
-      // phablet breakpoint 
+      // phablet breakpoint
       @include breakpoint(phablet) {
         font-size: 8vw;
       }
-      // mobileonly breakpoint 
+      // mobileonly breakpoint
       @include breakpoint(mobileonly) {
         font-size: 7vw;
       }
   }
+
+  .guest {
+    color: scale-color($yellow, $lightness: 80%);
+    display: block;
+    margin-left: 25%;
+    text-shadow:
+                0 0 0 transparent,
+                0 0 10px $clr2,
+                0 0 20px rgba($yellow,.5),
+                0 0 40px rgba($yellow,1),
+                0 0 100px rgba($yellow,1),
+                0 0 200px rgba($yellow,1),
+                0 0 300px rgba($yellow,1),
+                0 0 500px rgba($yellow,1);
+
+  }
 }
 
-.signUpForm, 
+
+.signUpForm,
 .logInForm {
   margin-top: 30px;
   label {
@@ -172,19 +189,19 @@ body {
               0 0 100px rgba($clr3,1),
               0 0 200px rgba($clr3,1),
               0 0 300px rgba($clr3,1),
-              0 0 500px rgba($clr3,1);  
+              0 0 500px rgba($clr3,1);
     // chromebook breakpoint
     @include breakpoint(chromeBook) {
-      font-size: 1.5vw;  
+      font-size: 1.5vw;
     }
-    // bigPhablet break point 
+    // bigPhablet break point
     @include breakpoint(bigPhablet) {
       font-size: 3vw;
     }
     // phablet break point
     @include breakpoint(phablet) {
       font-size: 5vw;
-    }                  
+    }
   }
   input{
       color: white;
@@ -193,7 +210,7 @@ body {
       background: none;
       padding: 8px 0;
       border: none;
-      box-shadow: 
+      box-shadow:
                 0 4px 2px -2px scale-color($clr1, $lightness: 80%);
   }
    button {
@@ -218,9 +235,9 @@ body {
       transition: 1s all ease;
         // chromebook breakpoint
         @include breakpoint(chromeBook) {
-          font-size: 1.5vw;  
+          font-size: 1.5vw;
           padding-top: 20px;
-        } 
+        }
         // bigPhablet breakpoint
         @include breakpoint(bigPhablet) {
           font-size: 4vw;
@@ -230,7 +247,7 @@ body {
         @include breakpoint(phablet) {
           font-size: 6.5vw;
           padding-top: 20px;
-        }    
+        }
         &:hover {
           color: scale-color($clr2, $lightness: 80%);
            text-shadow:

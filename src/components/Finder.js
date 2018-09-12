@@ -94,12 +94,6 @@ export default class Finder extends Component {
             this.classList.remove('glow');
         })
 
-        // $('.addtocart').click(function () {
-        //     $(this).addClass('on');
-        //     $(this).one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function (event) {
-        //         $(this).removeClass('on')
-        //     });
-        // });
     }
 
     render(){
@@ -111,6 +105,11 @@ export default class Finder extends Component {
                         <i className="fas fa-backspace signout-symbol" onClick={() => this.props.logout()}></i>
                     </div>
                     <h2 className="search-recipe-header">Search for Recipes</h2>
+                    {
+                        (typeof this.props.location.state !== "undefined" && this.props.location.state.guest)
+                        ? <p className="guest-warning">You are logged in as guest, your beers will not be saved!</p>
+                        : null
+                    }
                     <div className="book clearfix">
                         <Link to="/RecipeBook">
                             <img className="beer-bible" id="beerBible" src="/assets/beerbible.png" alt="beer bible"></img>

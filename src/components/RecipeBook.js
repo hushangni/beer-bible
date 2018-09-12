@@ -61,6 +61,7 @@ class RecipeBook extends Component {
             })
             return;
         }
+
         firebase.auth().onAuthStateChanged((user) => {
             firebase.database().ref().child(`users/${user.uid}/beerRecipes`).once('value', (snapshot) => {
 
@@ -95,7 +96,7 @@ class RecipeBook extends Component {
 
                     if (snapshot.val()[beerNa].beer.notes) {
                         document.getElementById('notes').value = snapshot.val()[beerNa].beer.notes;
-                    } else {
+                    } else if (document.getElementById('notes')) {
                         document.getElementById('notes').value = "";
                     }
                 }
@@ -165,7 +166,6 @@ class RecipeBook extends Component {
                                     </div>
                                     <button onClick={() => this.deleteRecipe(beer.name)} id={beer.key}><i class="fas fa-trash-alt"></i></button>
                                 </div>
-
                             )
                         })}
                     </aside>
