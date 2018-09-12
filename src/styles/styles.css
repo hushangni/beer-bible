@@ -706,7 +706,8 @@ body {
       margin: 0 auto; }
     .search-results .beer-item .info-button i,
     .search-results .beer-item .add-button i {
-      font-size: 3.2rem; }
+      font-size: 3.2rem;
+      float: left; }
   .search-form button {
     font-size: 3rem;
     font-family: "neontubes";
