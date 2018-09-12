@@ -645,6 +645,10 @@ header {
     .search-results .beer-item .info-button,
     .search-results .beer-item .add-button {
       background: transparent; }
+      .search-results .beer-item .info-button:hover i,
+      .search-results .beer-item .add-button:hover i {
+        animation: pulse 2s infinite;
+        text-shadow: -0.2rem -0.2rem 1rem #2695ff, 0.2rem 0.2rem 1rem #2695ff, 0 0 2rem #2695ff, 0 0 4rem #2695ff, 0 0 6rem #2695ff, 0 0 8rem #2695ff, 0 0 10rem #2695ff; }
     .search-results .beer-item .info-button i,
     .search-results .beer-item .add-button i {
       font-size: 4.2rem;
@@ -666,6 +670,7 @@ header {
   color: #00245b;
   padding: 3%;
   position: fixed;
+  z-index: 3;
   width: 70%;
   top: 50%;
   left: 50%;
@@ -676,13 +681,17 @@ header {
     width: 33%;
     float: left; }
   .beer-item-modal .close-modal-button {
-    background: transparent; }
+    background: transparent;
+    position: absolute;
+    right: 20px;
+    z-index: 10;
+    top: 20px; }
+    .beer-item-modal .close-modal-button:hover i {
+      color: #ffb300;
+      animation: spin 2s infinite; }
   .beer-item-modal .close-modal-button i {
     font-size: 4.2rem;
     color: #00245b;
-    position: absolute;
-    right: 20px;
-    top: 20px;
     transition: all 0.2s ease-in; }
     .beer-item-modal .close-modal-button i:hover {
       color: #ffb300;
