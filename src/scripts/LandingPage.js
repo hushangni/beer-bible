@@ -65,8 +65,13 @@ class LandingPage extends Component {
                         <div className="confirmContainer">
                             <label htmlFor="confirm">Confirm:</label>
                             <input type="password" className="confirm" name="confirm" value={this.state.confirm} onChange={this.handleChange} />
+<<<<<<< HEAD
                             <button>Sign Up</button>
                         </div>
+=======
+                        </div>
+                        <button>Sign Up</button>
+>>>>>>> 9bf617c6bf409fc4210ba8ea7c977c820cc8c435
                     </div>
                 </form>    
             );
