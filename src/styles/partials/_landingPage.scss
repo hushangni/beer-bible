@@ -1,5 +1,4 @@
 
-// neon sign styles
 html,
 body {
   margin: 0;
@@ -13,19 +12,11 @@ body {
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(/assets/brick-wall.jpg);
 }
 
-header {
-  height:  100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
+// big neon sign styles
 .logoBig {
-  display: block;
-  margin: 0 auto;
   font-family: "neontubes";
   font-size: 10vw;
   text-align: center;
-  white-space: nowrap;
     // laptop breakpoint
     @include breakpoint(laptop){
       font-size: 22vh;
@@ -36,6 +27,10 @@ header {
       font-size: 23vh;
       letter-spacing: 12px;
     }
+    // bigPhablet breakpoint 
+    @include breakpoint(bigPhablet) {
+      font-size: 17vw;
+    }
     // phablet breakpoint 
     @include breakpoint(phablet) {
       font-size: 20vw;
@@ -45,33 +40,8 @@ header {
       font-size: 20vw;
     }
 
-  .beer{
-    position: relative;
-  }
-
-  .bible {
-    position: absolute;
-    width: 100%;
-    top: 22%;
-      // laptop breakpoint
-      @include breakpoint(laptop){
-        top: 37%;
-      }
-       // chromebook breakpoint
-      @include breakpoint(chromeBook) {
-        top: 44%;
-      }
-      // phablet breakpoint 
-      @include breakpoint(phablet) {
-        top: 25%;
-      }
-      // mobileonly breakpoint 
-      @include breakpoint(mobileonly) {
-        top: 28%;
-      }
-  }
-
-  .beerBible {
+    // shared class for beer bible neon sign
+    .beerBible {
     transform: rotate(-1deg);
     color: scale-color($clr1, $lightness: 85%);
     text-shadow:
@@ -86,16 +56,43 @@ header {
                 0 0 1000px rgba($clr1,1);
     animation: blink 4s infinite alternate;
   }
+    // beer, bible classes 
+  .beer{
+    position: relative;
+  }
+  .bible {
+    position: absolute;
+    width: 100%;
+    top: 22%;
+      // laptop breakpoint
+      @include breakpoint(laptop){
+        top: 37%;
+      }
+       // chromebook breakpoint
+      @include breakpoint(chromeBook) {
+        top: 44%;
+      }
+      // bigPhablet breakpoint
+      @include breakpoint(bigPhablet) {
+        top: 32%;
+      }
+      // phablet breakpoint 
+      @include breakpoint(phablet) {
+        top: 25%;
+      }
+      // mobileonly breakpoint 
+      @include breakpoint(mobileonly) {
+        top: 28%;
+      }
+  }
 }
 
+// container for small neon signs (log in/sign up)
 .logoSmall {
   display: block;
   margin: 0 auto;
-  margin-top: 150px;
   width: 35%;
-  font-family: "neontubes";
-  text-align: center;
-  white-space: nowrap;
+  margin-top: 150px;
     // laptop breakpoint
     @include breakpoint(laptop) {
       width: 50%;
@@ -105,6 +102,10 @@ header {
     @include breakpoint(chromeBook) {
      width: 55%;
      margin-top: 142px;
+    }
+    // bigPhablet breakpoint 
+    @include breakpoint(bigPhablet) {
+      margin-top: 120px;
     }
     // phablet breakpoint 
     @include breakpoint(phablet) {
@@ -117,19 +118,19 @@ header {
       width: 97%;
     }
   
+  // text styles for small neon signs (log in/sign up)
   .signUp,
   .logIn {
-    display: block;
-    float: left;
-    margin: 0 15px;
-    transform: translateZ(0) translate3D(0,0,0);
-    backface-visibility: hidden;
-    will-change: opacity;
-    transform: rotate(1deg);
     font-family: "neontubes";
     font-size: 3vw;
     text-decoration: none;
     color: scale-color($clr2, $lightness: 80%);
+    display: block;
+    float: left;
+    margin: 0 15px;
+    transform: translateZ(0) translate3D(0,0,0);
+    will-change: opacity;
+    transform: rotate(1deg);
     text-shadow:
                 0 0 0 transparent,
                 0 0 10px $clr2,
@@ -139,7 +140,7 @@ header {
                 0 0 200px rgba($clr2,1),
                 0 0 300px rgba($clr2,1),
                 0 0 500px rgba($clr2,1);
-    animation: buzz 0.01s infinite alternate;
+      animation: buzz 0.01s infinite alternate;
       // laptop breakpoint
       @include breakpoint(laptop){
         font-size: 4vw;
@@ -157,100 +158,54 @@ header {
 
 .signUpForm, 
 .logInForm {
-  margin: 0 auto;
-  display: block;
-  margin-top: 40px;
-  width: 100%;
+  margin-top: 30px;
+  label {
+  font-family: "neontubes";
+  font-size: 2vw;
+  color: scale-color($clr3, $lightness: 80%);
+  text-transform: uppercase;
+  text-shadow:
+              0 0 0 transparent,
+              0 0 10px $clr3,
+              0 0 20px rgba($clr3,.5),
+              0 0 40px rgba($clr3,1),
+              0 0 100px rgba($clr3,1),
+              0 0 200px rgba($clr3,1),
+              0 0 300px rgba($clr3,1),
+              0 0 500px rgba($clr3,1);  
     // chromebook breakpoint
-      @include breakpoint(chromeBook) {
-        margin-top: 20px;
-        width: 100%;
-      }
-    div {
-    float: left;
-    width: 33.3%;
-    }      
-    .emailContainer, 
-    .passwordContainer, 
-    .confirmContainer {
-      // mobile only break poiny
-      @include breakpoint(phablet) {
-        width: 100%;
-        margin: 30px 0;
-      }
-      .email {
-        // mobile only break poiny
-        @include breakpoint(phablet) {
-          width: 75%;
-        } 
-      }
-      .confirm {
-        // mobile only break poiny
-        @include breakpoint(phablet) {
-          width: 67%;
-        }
-      }
-      label {
-      font-family: "neontubes";
-      font-size: 2vw;
-      color: scale-color($clr3, $lightness: 80%);
-      text-transform: uppercase;
-      text-shadow:
-                  0 0 0 transparent,
-                  0 0 10px $clr3,
-                  0 0 20px rgba($clr3,.5),
-                  0 0 40px rgba($clr3,1),
-                  0 0 100px rgba($clr3,1),
-                  0 0 200px rgba($clr3,1),
-                  0 0 300px rgba($clr3,1),
-                  0 0 500px rgba($clr3,1);  
-        // chromebook breakpoint
-        @include breakpoint(chromeBook) {
-          font-size: 1.5vw;  
-        }
-        // mobile only break poiny
-        @include breakpoint(phablet) {
-          font-size: 5vw;
-        }
-                         
-      }
-    }    
-    input{
+    @include breakpoint(chromeBook) {
+      font-size: 1.5vw;  
+    }
+    // bigPhablet break point 
+    @include breakpoint(bigPhablet) {
+      font-size: 3vw;
+    }
+    // phablet break point
+    @include breakpoint(phablet) {
+      font-size: 5vw;
+    }                  
+  }
+  input{
       color: white;
       font-size: 20px;
-      letter-spacing: 4px;
       text-transform: uppercase;
       background: none;
-      margin: 0 10px;
-      width: 50%;
       padding: 8px 0;
       border: none;
       box-shadow: 
                 0 4px 2px -2px scale-color($clr1, $lightness: 80%);
-      // mobile only break point
-      @include breakpoint(mobileonly) {
-        width: 60%;
-      }          
-    }
-
-    .logInEmail, 
-    .logInPassword {
-      width: 50%;
-       // mobile only break point
-      @include breakpoint(mobileonly) {
-        width: 69%;
-      }   
-    }
-    .logInPassword {
-      @include breakpoint(phablet) {
-         width: 55%;
-      }
-    }
-    button {
+  }
+   button {
       font-family: "neontubes";
       font-size: 2vw;
       color: scale-color($clr1, $lightness: 80%);
       text-transform: uppercase;
+      border: none;
+      background: none;
+      display: block;
+      margin: 0 auto;
+      padding-top: 30px;
       text-shadow:
                   0 0 0 transparent,
                   0 0 10px $clr1,
@@ -260,18 +215,21 @@ header {
                   0 0 200px rgba($clr1,1),
                   0 0 300px rgba($clr1,1),
                   0 0 500px rgba($clr1,1);
-      border: none;
-      background: none;
       transition: 1s all ease;
         // chromebook breakpoint
         @include breakpoint(chromeBook) {
           font-size: 1.5vw;  
+          padding-top: 20px;
         } 
+        // bigPhablet breakpoint
+        @include breakpoint(bigPhablet) {
+          font-size: 4vw;
+          padding-top: 30px;
+        }
           // mobile only break poiny
         @include breakpoint(phablet) {
           font-size: 6.5vw;
-          display: block;
-          margin: 30px auto;
+          padding-top: 20px;
         }    
         &:hover {
           color: scale-color($clr2, $lightness: 80%);
@@ -288,30 +246,24 @@ header {
     }
 }
 
+.signUpForm {
+  div {
+    width: 33.3%;
+    float: left;
+      @include breakpoint(bigPhablet) {
+        width: 100%;
+      }
+  }
+}
+
 .logInForm {
-  width: 60%;
-  // chromebook breakpoint
-    @include breakpoint(chromeBook) {
-      width: 70%;
-    }
-    @include breakpoint(phablet) {
-      width: 100%;
-    }
-      label {
-        // chromebook breakpoint
-        @include breakpoint(chromeBook) {
-          font-size: 2vw;  
-        }     
+  div {
+    width: 50%;
+    float: left;
+      @include breakpoint(bigPhablet) {
+        width: 100%;
       }
-      button {
-        // chromebook breakpoint
-        @include breakpoint(chromeBook) {
-          font-size: 2vw;  
-        }  
-         @include breakpoint(phablet) {
-          font-size: 6.5vw;
-        }   
-      }
+  }
 }
 
 @keyframes buzz {
@@ -332,3 +284,5 @@ header {
   }
   .logo .signUp .logIn { font-size: 103px; }
 }
+
+

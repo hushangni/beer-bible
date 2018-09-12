@@ -275,18 +275,10 @@ body {
   background-attachment: fixed;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/assets/brick-wall.jpg); }
 
-header {
-  height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat; }
-
 .logoBig {
-  display: block;
-  margin: 0 auto;
   font-family: "neontubes";
   font-size: 10vw;
-  text-align: center;
-  white-space: nowrap; }
+  text-align: center; }
   @media (max-width: 1024px) {
     .logoBig {
       font-size: 22vh;
@@ -295,12 +287,20 @@ header {
     .logoBig {
       font-size: 23vh;
       letter-spacing: 12px; } }
+  @media (max-width: 768px) {
+    .logoBig {
+      font-size: 17vw; } }
   @media (max-width: 550px) {
     .logoBig {
       font-size: 20vw; } }
   @media (max-width: 375px) {
     .logoBig {
       font-size: 20vw; } }
+  .logoBig .beerBible {
+    transform: rotate(-1deg);
+    color: #fdd0d0;
+    text-shadow: 0 0 0 transparent, 0 0 10px #b10707, 0 0 20px rgba(177, 7, 7, 0.5), 0 0 40px #b10707, 0 0 100px #b10707, 0 0 200px #b10707, 0 0 300px #b10707, 0 0 500px #b10707, 0 0 1000px #b10707;
+    animation: blink 4s infinite alternate; }
   .logoBig .beer {
     position: relative; }
   .logoBig .bible {
@@ -313,26 +313,21 @@ header {
     @media (max-width: 960px) {
       .logoBig .bible {
         top: 44%; } }
+    @media (max-width: 768px) {
+      .logoBig .bible {
+        top: 32%; } }
     @media (max-width: 550px) {
       .logoBig .bible {
         top: 25%; } }
     @media (max-width: 375px) {
       .logoBig .bible {
         top: 28%; } }
-  .logoBig .beerBible {
-    transform: rotate(-1deg);
-    color: #fdd0d0;
-    text-shadow: 0 0 0 transparent, 0 0 10px #b10707, 0 0 20px rgba(177, 7, 7, 0.5), 0 0 40px #b10707, 0 0 100px #b10707, 0 0 200px #b10707, 0 0 300px #b10707, 0 0 500px #b10707, 0 0 1000px #b10707;
-    animation: blink 4s infinite alternate; }
 
 .logoSmall {
   display: block;
   margin: 0 auto;
-  margin-top: 150px;
   width: 35%;
-  font-family: "neontubes";
-  text-align: center;
-  white-space: nowrap; }
+  margin-top: 150px; }
   @media (max-width: 1024px) {
     .logoSmall {
       width: 50%;
@@ -341,6 +336,9 @@ header {
     .logoSmall {
       width: 55%;
       margin-top: 142px; } }
+  @media (max-width: 768px) {
+    .logoSmall {
+      margin-top: 120px; } }
   @media (max-width: 550px) {
     .logoSmall {
       width: 100%;
@@ -351,17 +349,16 @@ header {
       width: 97%; } }
   .logoSmall .signUp,
   .logoSmall .logIn {
-    display: block;
-    float: left;
-    margin: 0 15px;
-    transform: translateZ(0) translate3D(0, 0, 0);
-    backface-visibility: hidden;
-    will-change: opacity;
-    transform: rotate(1deg);
     font-family: "neontubes";
     font-size: 3vw;
     text-decoration: none;
     color: #d4eaff;
+    display: block;
+    float: left;
+    margin: 0 15px;
+    transform: translateZ(0) translate3D(0, 0, 0);
+    will-change: opacity;
+    transform: rotate(1deg);
     text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff, 0 0 300px #2695ff, 0 0 500px #2695ff;
     animation: buzz 0.01s infinite alternate; }
     @media (max-width: 1024px) {
@@ -379,144 +376,81 @@ header {
 
 .signUpForm,
 .logInForm {
-  margin: 0 auto;
-  display: block;
-  margin-top: 40px;
-  width: 100%; }
-  @media (max-width: 960px) {
-    .signUpForm,
-    .logInForm {
-      margin-top: 20px;
-      width: 100%; } }
-  .signUpForm div,
-  .logInForm div {
-    float: left;
-    width: 33.3%; }
-  @media (max-width: 550px) {
-    .signUpForm .emailContainer,
-    .signUpForm .passwordContainer,
-    .signUpForm .confirmContainer,
-    .logInForm .emailContainer,
-    .logInForm .passwordContainer,
-    .logInForm .confirmContainer {
-      width: 100%;
-      margin: 30px 0; } }
-  @media (max-width: 550px) {
-    .signUpForm .emailContainer .email,
-    .signUpForm .passwordContainer .email,
-    .signUpForm .confirmContainer .email,
-    .logInForm .emailContainer .email,
-    .logInForm .passwordContainer .email,
-    .logInForm .confirmContainer .email {
-      width: 75%; } }
-  @media (max-width: 550px) {
-    .signUpForm .emailContainer .confirm,
-    .signUpForm .passwordContainer .confirm,
-    .signUpForm .confirmContainer .confirm,
-    .logInForm .emailContainer .confirm,
-    .logInForm .passwordContainer .confirm,
-    .logInForm .confirmContainer .confirm {
-      width: 67%; } }
-  .signUpForm .emailContainer label,
-  .signUpForm .passwordContainer label,
-  .signUpForm .confirmContainer label,
-  .logInForm .emailContainer label,
-  .logInForm .passwordContainer label,
-  .logInForm .confirmContainer label {
+  margin-top: 30px; }
+  .signUpForm label,
+  .logInForm label {
     font-family: "neontubes";
     font-size: 2vw;
     color: #fefefe;
     text-transform: uppercase;
     text-shadow: 0 0 0 transparent, 0 0 10px #fafafa, 0 0 20px rgba(250, 250, 250, 0.5), 0 0 40px #fafafa, 0 0 100px #fafafa, 0 0 200px #fafafa, 0 0 300px #fafafa, 0 0 500px #fafafa; }
     @media (max-width: 960px) {
-      .signUpForm .emailContainer label,
-      .signUpForm .passwordContainer label,
-      .signUpForm .confirmContainer label,
-      .logInForm .emailContainer label,
-      .logInForm .passwordContainer label,
-      .logInForm .confirmContainer label {
+      .signUpForm label,
+      .logInForm label {
         font-size: 1.5vw; } }
+    @media (max-width: 768px) {
+      .signUpForm label,
+      .logInForm label {
+        font-size: 3vw; } }
     @media (max-width: 550px) {
-      .signUpForm .emailContainer label,
-      .signUpForm .passwordContainer label,
-      .signUpForm .confirmContainer label,
-      .logInForm .emailContainer label,
-      .logInForm .passwordContainer label,
-      .logInForm .confirmContainer label {
+      .signUpForm label,
+      .logInForm label {
         font-size: 5vw; } }
   .signUpForm input,
   .logInForm input {
     color: white;
     font-size: 20px;
-    letter-spacing: 4px;
     text-transform: uppercase;
     background: none;
-    margin: 0 10px;
-    width: 50%;
     padding: 8px 0;
     border: none;
     box-shadow: 0 4px 2px -2px #fdc0c0; }
-    @media (max-width: 375px) {
-      .signUpForm input,
-      .logInForm input {
-        width: 60%; } }
-  .signUpForm .logInEmail,
-  .signUpForm .logInPassword,
-  .logInForm .logInEmail,
-  .logInForm .logInPassword {
-    width: 50%; }
-    @media (max-width: 375px) {
-      .signUpForm .logInEmail,
-      .signUpForm .logInPassword,
-      .logInForm .logInEmail,
-      .logInForm .logInPassword {
-        width: 69%; } }
-  @media (max-width: 550px) {
-    .signUpForm .logInPassword,
-    .logInForm .logInPassword {
-      width: 55%; } }
   .signUpForm button,
   .logInForm button {
     font-family: "neontubes";
     font-size: 2vw;
     color: #fdc0c0;
     text-transform: uppercase;
-    text-shadow: 0 0 0 transparent, 0 0 10px #b10707, 0 0 20px rgba(177, 7, 7, 0.5), 0 0 40px #b10707, 0 0 100px #b10707, 0 0 200px #b10707, 0 0 300px #b10707, 0 0 500px #b10707;
     border: none;
     background: none;
+    display: block;
+    margin: 0 auto;
+    padding-top: 30px;
+    text-shadow: 0 0 0 transparent, 0 0 10px #b10707, 0 0 20px rgba(177, 7, 7, 0.5), 0 0 40px #b10707, 0 0 100px #b10707, 0 0 200px #b10707, 0 0 300px #b10707, 0 0 500px #b10707;
     transition: 1s all ease; }
     @media (max-width: 960px) {
       .signUpForm button,
       .logInForm button {
-        font-size: 1.5vw; } }
+        font-size: 1.5vw;
+        padding-top: 20px; } }
+    @media (max-width: 768px) {
+      .signUpForm button,
+      .logInForm button {
+        font-size: 4vw;
+        padding-top: 30px; } }
     @media (max-width: 550px) {
       .signUpForm button,
       .logInForm button {
         font-size: 6.5vw;
-        display: block;
-        margin: 30px auto; } }
+        padding-top: 20px; } }
     .signUpForm button:hover,
     .logInForm button:hover {
       color: #d4eaff;
       text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff, 0 0 300px #2695ff, 0 0 500px #2695ff; }
 
-.logInForm {
-  width: 60%; }
-  @media (max-width: 960px) {
-    .logInForm {
-      width: 70%; } }
-  @media (max-width: 550px) {
-    .logInForm {
+.signUpForm div {
+  width: 33.3%;
+  float: left; }
+  @media (max-width: 768px) {
+    .signUpForm div {
       width: 100%; } }
-  @media (max-width: 960px) {
-    .logInForm label {
-      font-size: 2vw; } }
-  @media (max-width: 960px) {
-    .logInForm button {
-      font-size: 2vw; } }
-  @media (max-width: 550px) {
-    .logInForm button {
-      font-size: 6.5vw; } }
+
+.logInForm div {
+  width: 50%;
+  float: left; }
+  @media (max-width: 768px) {
+    .logInForm div {
+      width: 100%; } }
 
 @keyframes buzz {
   70% {
